@@ -1,0 +1,52 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    font-family: "Hanken Grotesk", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 0.9rem;
+    display: none;
+
+    @media only screen and (max-width: 80rem) {
+        display: none;
+    }
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 50%, 0.5);
+    transition: 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(0, 0%, 40%);
+}
+
+::selection {
+    background-color: #FF805B;
+    color: hsl(0, 0%, 0%);
+}
+
+body {
+    background-color: hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 100%);
+}

@@ -1,95 +1,15 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "./home.module.scss";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className={styles.container}>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <svg xmlns="http://www.w3.org/2000/svg" className={styles.logo} viewBox="0 0 306 135" fill="none">
+        <path d="M192.709 62.0494C192.709 55.6766 193.558 49.8703 195.258 44.6304C197.099 39.3905 200.143 34.9296 204.392 31.2475C208.782 27.4238 214.589 24.5206 221.811 22.538C229.175 20.4137 238.38 19.3516 249.427 19.3516C260.473 19.3516 269.607 20.4137 276.83 22.538C284.194 24.5206 290 27.4238 294.249 31.2475C298.497 34.9296 301.471 39.3905 303.171 44.6304C305.012 49.8703 305.932 55.6766 305.932 62.0494V91.5768C305.932 97.9496 305.224 103.756 303.808 108.996C302.533 114.236 299.843 118.767 295.736 122.591C291.77 126.415 286.106 129.389 278.742 131.513C271.377 133.637 261.606 134.7 249.427 134.7C237.247 134.7 227.405 133.637 219.899 131.513C212.393 129.389 206.587 126.415 202.48 122.591C198.515 118.767 195.824 114.236 194.408 108.996C193.133 103.756 192.496 97.9496 192.496 91.5768L192.709 62.0494ZM265.783 82.23V71.8211H232.857V82.23H265.783Z" fill="white" />
+        <path d="M161.085 133C148.623 133 139.772 130.593 134.532 125.778C129.292 120.821 126.672 112.537 126.672 100.924V63.1118H118.175V21.4761L131.558 0.658203H170.219V21.4761H184.452V64.1739H170.219V73.5207H184.877V133H161.085Z" fill="white" />
+        <path d="M0.610865 62.0494C0.610865 55.6766 1.46057 49.8703 3.15999 44.6304C5.00103 39.3905 8.04582 34.9296 12.2944 31.2475C16.6845 27.4238 22.4909 24.5206 29.7134 22.538C37.0775 20.4137 46.2827 19.3516 57.3289 19.3516C68.3751 19.3516 77.5095 20.4137 84.732 22.538C92.0962 24.5206 97.9025 27.4238 102.151 31.2475C106.4 34.9296 109.374 39.3905 111.073 44.6304C112.914 49.8703 113.835 55.6766 113.835 62.0494V91.5768C113.835 97.9496 113.126 103.756 111.71 108.996C110.436 114.236 107.745 118.767 103.638 122.591C99.6727 126.415 94.008 129.389 86.6439 131.513C79.2797 133.637 69.5081 134.7 57.3289 134.7C45.1498 134.7 35.3073 133.637 27.8015 131.513C20.2958 129.389 14.4894 126.415 10.3825 122.591C6.41721 118.767 3.72646 114.236 2.31028 108.996C1.03572 103.756 0.398438 97.9496 0.398438 91.5768L0.610865 62.0494ZM73.6858 82.23V71.8211H40.7596V82.23H73.6858Z" fill="white" />
+      </svg>
+
     </div>
   );
 }
