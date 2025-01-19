@@ -1,0 +1,42 @@
+.navwraper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 2.4rem 4rem;
+    background-color: hsl(0, 0%, 6%);
+
+    position: fixed;
+    top: 0;
+    flex-direction: row;
+
+    .nav {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+        .primarybutton{
+            .otoicon{
+                height: 1.8rem;
+                fill: #fff;
+            }
+        }
+
+        .linkslist{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            gap: 2rem;
+
+            .link{
+                color: #fff;
+                text-decoration: none;
+                font-size: 1.36rem;
+                font-weight: 500;
+                text-transform: uppercase;
+                font-family: Space Grotesk;
+            }
+        }
+    }
+}

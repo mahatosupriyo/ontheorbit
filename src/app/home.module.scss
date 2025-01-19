@@ -1,11 +1,27 @@
-.container{
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   min-height: 100dvh;
 
-  .logo{
+  .logo {
     height: 6rem;
+  }
+}
+
+.centeredtxt {
+  color: hsla(0, 0%, 100%, 0.5);
+  font-family: Plus Jakarta Sans;
+  font-family: "Space Grotesk";
+
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  .high {
+    color: #fff;
   }
 }
