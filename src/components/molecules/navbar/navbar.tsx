@@ -11,7 +11,7 @@ export default function NavBar() {
 
                 <Link draggable="false" href="/" className={styles.primarybutton}>
 
-                    <img src="https://ik.imagekit.io/ontheorbit/oto.png?updatedAt=1737655889509" height={20} />
+                    <img src="https://ik.imagekit.io/ontheorbit/oto.png?updatedAt=1737655889509" height={24} />
 
                 </Link>
 
