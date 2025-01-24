@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 2.4rem 4rem;
-    background-color: hsl(0, 0%, 6%);
+    padding: 4rem 4rem;
+    background-color: hsl(0, 0%, 0%);
 
     position: fixed;
     top: 0;
@@ -17,6 +17,9 @@
         width: 100%;
 
         .primarybutton{
+            display: flex;
+            align-items: center;
+            justify-content: center;
             .otoicon{
                 height: 1.8rem;
                 fill: #fff;
@@ -27,15 +30,16 @@
             display: flex;
             align-items: center;
             flex-direction: row;
-            gap: 2rem;
+            gap: 4rem;
 
             .link{
                 color: #fff;
                 text-decoration: none;
-                font-size: 1.36rem;
-                font-weight: 500;
+                font-size: 1.46rem;
+                font-weight: 600;
                 text-transform: uppercase;
-                font-family: Space Grotesk;
+                font-family: Plus Jakarta Sans;
+                // font-family: Hansken Grotesk;
             }
         }
     }
