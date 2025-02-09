@@ -17,6 +17,7 @@ export default function Home() {
 
 
       </div>
+      <section style={{height: '100vh'}}></section>
     </>
   );
 }

@@ -1,8 +1,11 @@
+@use "../../../app/styles/essentials";
+@import "../../../app/styles/essentials";
+
 .navwraper {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 4rem 4rem;
+    padding: 1.6rem 10rem;
     background-color: hsl(0, 0%, 0%);
 
     position: fixed;
@@ -16,10 +19,38 @@
         justify-content: space-between;
         width: 100%;
 
+        .rightwraper{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .btn{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Space Grotesk';
+                font-size: 1.66rem;
+                // background-color: #fff;
+                border-radius: 10rem;
+                font-weight: 700;
+                background-color: none;
+                background: transparent;
+                // line-height: 100%;
+                color: #fff;
+                cursor: pointer;
+                padding: 1.6rem 2rem;
+            }
+        }
+
         .primarybutton{
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 1rem;
+            font-family: 'Space Grotesk';
+            text-decoration: none;
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 500;
             .otoicon{
                 height: 1.8rem;
                 fill: #fff;
@@ -35,11 +66,18 @@
             .link{
                 color: #fff;
                 text-decoration: none;
-                font-size: 1.46rem;
-                font-weight: 600;
+                font-size: 1.66rem;
+                font-weight: 500;
                 text-transform: uppercase;
-                font-family: Plus Jakarta Sans;
-                // font-family: Hansken Grotesk;
+                // font-family: Plus Jakarta Sans;
+                padding: 1.6rem 0rem;
+
+                font-family: 'Space Grotesk';
+                @include smooth;
+
+                &:hover{
+                    opacity: 0.5;
+                }
             }
         }
     }
