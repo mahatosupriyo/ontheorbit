@@ -2,6 +2,7 @@
 import Navbar from "@/components/molecules/navbar/navbar";
 import styles from "./home.module.scss";
 import { motion } from "framer-motion";
+import Footer from "@/components/molecules/footer/footer";
 
 export default function Home() {
   return (
@@ -17,7 +18,8 @@ export default function Home() {
 
 
       </div>
-      <section style={{height: '100vh'}}></section>
+      <section style={{ height: '100vh' }}></section>
+      <Footer />
     </>
   );
 }
