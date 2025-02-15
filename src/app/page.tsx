@@ -9,13 +9,12 @@ export default function Home() {
     <>
       <Navbar />
       <div className={styles.container}>
-        <motion.h5
+        {/* <motion.h5
           initial={{ letterSpacing: "2rem", opacity: 0 }}
           animate={{ letterSpacing: "0.8rem", opacity: 1 }}
           transition={{ duration: 1.2, ease: [0.785, 0.135, 0.15, 0.86] }}
           className={styles.centeredtxt}>on the <span className={styles.high}>orbit</span>
-        </motion.h5>
-
+        </motion.h5> */}
 
       </div>
       <section style={{ height: '100vh' }}></section>
