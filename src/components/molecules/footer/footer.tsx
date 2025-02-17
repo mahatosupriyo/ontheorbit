@@ -24,7 +24,7 @@ export default function Footer() {
                             <p className={styles.linklabel}>Resources</p>
 
                             <Link draggable="false" href="/" className={styles.linkitem}>Blogs</Link>
-                            <Link draggable="false" href="/" className={styles.linkitem}>Press Kit</Link>
+                            <Link draggable="false" href="/" className={styles.linkitem}>Brand Kit</Link>
                         </div>
 
                         <div className={styles.linkcolumn}>
