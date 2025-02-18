@@ -8,9 +8,9 @@ generator client {
 }
 
 model Lead {
-  id                  String   @id @default(auto()) @map("_id") @db.ObjectId
-  name                String
-  contactInfo         String
+  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
+  name                  String
+  contactInfo           String
   conversionProbability Float
-  createdAt           DateTime @default(now())
+  createdAt             DateTime @default(now())
 }
