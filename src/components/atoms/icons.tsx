@@ -176,10 +176,10 @@ export default function Icon({ name, size = 24, fill = 'currentColor' }: IconPro
                     <path d="M83.9094 54.5074C66.2334 60.3472 60.3474 66.2344 54.5074 83.9094C54.027 85.3625 51.9722 85.3625 51.4918 83.9094C45.652 66.2334 39.7648 60.3474 22.0898 54.5074C20.6367 54.027 20.6367 51.9722 22.0898 51.4918C39.7658 45.652 45.6518 39.7648 51.4918 22.0898C51.9723 20.6367 54.027 20.6367 54.5074 22.0898C60.3472 39.7658 66.2344 45.6518 83.9094 51.4918C85.3625 51.9723 85.3625 54.027 83.9094 54.5074Z" fill="url(#paint0_linear_3253_91)" />
                     <defs>
                         <linearGradient id="paint0_linear_3253_91" x1="9.44458" y1="69.7646" x2="97.6428" y2="64.5238" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#AFA7A1" />
-                            <stop offset="0.34243" stop-color="#FE4200" />
-                            <stop offset="0.806666" stop-color="#FF805B" />
-                            <stop offset="1" stop-color="#98B7C0" />
+                            <stop stopColor="#AFA7A1" />
+                            <stop offset="0.34243" stopColor="#FE4200" />
+                            <stop offset="0.806666" stopColor="#FF805B" />
+                            <stop offset="1" stopColor="#98B7C0" />
                         </linearGradient>
                     </defs>
                 </svg>
@@ -194,22 +194,22 @@ export default function Icon({ name, size = 24, fill = 'currentColor' }: IconPro
                     <path d="M51.9971 87C54.2071 87 55.9971 85.21 55.9971 83V66.66L61.1671 71.83C61.9471 72.61 62.9771 73 63.9971 73C65.0171 73 66.0471 72.61 66.8271 71.83C68.3871 70.27 68.3871 67.74 66.8271 66.17L59.9471 59.29C57.8271 57.17 54.9971 56 51.9971 56C48.9971 56 46.1671 57.17 44.0471 59.29L37.1671 66.17C35.6071 67.73 35.6071 70.26 37.1671 71.83C38.7271 73.39 41.2671 73.39 42.8271 71.83L47.9971 66.66V83C47.9971 85.21 49.7871 87 51.9971 87Z" fill="url(#paint2_linear_3095_67)" />
                     <defs>
                         <linearGradient id="paint0_linear_3095_67" x1="8.44377" y1="71.7652" x2="96.6481" y2="66.5237" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#AFA7A1" />
-                            <stop offset="0.34243" stop-color="#FE4200" />
-                            <stop offset="0.806666" stop-color="#FF805B" />
-                            <stop offset="1" stop-color="#98B7C0" />
+                            <stop stopColor="#AFA7A1" />
+                            <stop offset="0.34243" stopColor="#FE4200" />
+                            <stop offset="0.806666" stopColor="#FF805B" />
+                            <stop offset="1" stopColor="#98B7C0" />
                         </linearGradient>
                         <linearGradient id="paint1_linear_3095_67" x1="8.44377" y1="71.7652" x2="96.6481" y2="66.5237" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#AFA7A1" />
-                            <stop offset="0.34243" stop-color="#FE4200" />
-                            <stop offset="0.806666" stop-color="#FF805B" />
-                            <stop offset="1" stop-color="#98B7C0" />
+                            <stop stopColor="#AFA7A1" />
+                            <stop offset="0.34243" stopColor="#FE4200" />
+                            <stop offset="0.806666" stopColor="#FF805B" />
+                            <stop offset="1" stopColor="#98B7C0" />
                         </linearGradient>
                         <linearGradient id="paint2_linear_3095_67" x1="8.44377" y1="71.7652" x2="96.6481" y2="66.5237" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#AFA7A1" />
-                            <stop offset="0.34243" stop-color="#FE4200" />
-                            <stop offset="0.806666" stop-color="#FF805B" />
-                            <stop offset="1" stop-color="#98B7C0" />
+                            <stop stopColor="#AFA7A1" />
+                            <stop offset="0.34243" stopColor="#FE4200" />
+                            <stop offset="0.806666" stopColor="#FF805B" />
+                            <stop offset="1" stopColor="#98B7C0" />
                         </linearGradient>
                     </defs>
                 </svg>
@@ -268,10 +268,10 @@ export default function Icon({ name, size = 24, fill = 'currentColor' }: IconPro
                     <path d="M25.8762 23.8695C27.1206 22.2102 27.8545 20.1538 27.8545 17.9273C27.8545 12.4531 23.4015 8 17.9273 8C12.4531 8 8 12.4531 8 17.9273C8 23.4015 12.4531 27.8545 17.9273 27.8545C20.1538 27.8545 22.2102 27.1171 23.8695 25.8762L28.2694 30.2761C28.5459 30.5526 28.9075 30.6909 29.2727 30.6909C29.6379 30.6909 29.9995 30.5526 30.2761 30.2761C30.8292 29.723 30.8292 28.826 30.2761 28.2694L25.8762 23.8695ZM17.9273 25.0182C14.0166 25.0182 10.8364 21.8379 10.8364 17.9273C10.8364 14.0166 14.0166 10.8364 17.9273 10.8364C21.8379 10.8364 25.0182 14.0166 25.0182 17.9273C25.0182 21.8379 21.8379 25.0182 17.9273 25.0182Z" fill="url(#paint0_linear_2942_54)" />
                     <defs>
                         <linearGradient id="paint0_linear_2942_54" x1="3.90303" y1="25.2895" x2="35.1737" y2="23.4313" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#AFA7A1" />
-                            <stop offset="0.34243" stop-color="#FE4200" />
-                            <stop offset="0.806666" stop-color="#FF805B" />
-                            <stop offset="1" stop-color="#98B7C0" />
+                            <stop stopColor="#AFA7A1" />
+                            <stop offset="0.34243" stopColor="#FE4200" />
+                            <stop offset="0.806666" stopColor="#FF805B" />
+                            <stop offset="1" stopColor="#98B7C0" />
                         </linearGradient>
                     </defs>
                 </svg>
