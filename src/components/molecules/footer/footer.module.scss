@@ -6,34 +6,29 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background-color: hsl(0, 0, 8%);
-
-
 
     .footerwraper {
         width: 100%;
         max-width: 200rem;
-
-
+        // background-color: hsl(0, 0, 10%);
 
         .footercontent {
             width: 100%;
             display: flex;
             justify-content: space-between;
             flex-direction: row;
-            gap: 16rem;
+            gap: 0rem;
             padding: 2rem 10rem;
-            color: hsl(0, 0%, 60%);
+            color: hsl(0, 0%, 90%);
 
             &:nth-child(1) {
-                border-bottom: 0.02rem solid hsl(0, 0%, 20%);
-                padding: 12rem 10rem 8rem 10rem;
-
+                // border-bottom: 0.02rem solid hsl(0, 0%, 16%);
+                padding: 10rem 10rem 4rem 10rem;
             }
 
-            .passiontxt{
-                font-size: 1.56rem;
-                font-weight: 700;
+            .passiontxt {
+                font-size: 1.5rem;
+                font-weight: 500;
                 display: flex;
                 flex-direction: row;
                 gap: 1rem;
@@ -42,6 +37,7 @@
 
             .linklist {
                 width: 100%;
+                max-width: 30%;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
@@ -50,11 +46,8 @@
                 .linklabel {
                     display: flex;
                     padding: 1rem 0rem;
-
-                    font-family: 'Space Grotesk';
-                    text-transform: uppercase;
                     color: hsl(0, 0%, 60%);
-                    font-size: 1.4rem;
+                    font-size: 1.6rem;
                     font-weight: 500;
                 }
 
@@ -73,11 +66,9 @@
 
                     .linkitem {
                         text-decoration: none;
-                        font-family: 'Space Grotesk';
                         color: #fff;
-                        font-size: 1.7rem;
+                        font-size: 1.8rem;
                         font-weight: 500;
-                        text-transform: uppercase;
                         @include smooth;
                         padding: 0.6rem 0rem;
 

@@ -1,0 +1,152 @@
+.card {
+    position: relative;
+    border-radius: 16px;
+    padding: 2px;
+    transition: all 0.3s ease;
+    height: 100%;
+    overflow: hidden;
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+
+    &.hovered {
+        transform: translateY(-8px);
+
+        .cardBorder {
+            opacity: 1;
+        }
+
+        .ctaButton {
+            // background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+    }
+
+    &.popular {
+        .cardBorder {
+            opacity: 0.7;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+                    rgba(99, 102, 241, 0.8),
+                    rgba(139, 92, 246, 0.8),
+                    rgba(236, 72, 153, 0.6),
+                    transparent 40%);
+        }
+    }
+}
+
+.cardBorder {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.1),
+            transparent 40%);
+    z-index: 1;
+}
+
+.cardContent {
+    background: linear-gradient(145deg, #1f2937, #111827);
+    background: #000;
+    border-radius: 15px;
+    padding: 2.6rem 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    z-index: 2;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.popularBadge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+.header {
+    margin-bottom: 1.5rem;
+}
+
+.tier {
+    color: #9ca3af;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+}
+
+.pricing {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 2rem;
+}
+
+.currency {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #e5e7eb;
+    margin-right: 0.25rem;
+}
+
+.amount {
+    font-size: 4.6rem;
+    font-weight: 500;
+    color: white;
+    line-height: 1;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    flex-grow: 1;
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    color: #d1d5db;
+    font-size: 1.36rem;
+    line-height: 1.5;
+}
+
+.checkIcon {
+    color: #6366f1;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.ctaButton {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.875rem 1.5rem;
+    font-size: 1.46rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+
+    &:hover {
+        background: linear-gradient(90deg, #6366f1, #8b5cf6);
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+}

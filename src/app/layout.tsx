@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./styles/global.scss";
+import "./styles/global.css";
 import Head from "next/head";
+import { SmoothScrollProvider } from "@/utils/scrollprovider";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ontheorbit.com'),
@@ -69,7 +71,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://use.typekit.net/ika2qcu.css"></link>
       </Head>
       <body>
-        {children}
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
   )

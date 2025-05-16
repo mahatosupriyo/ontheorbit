@@ -1,0 +1,23 @@
+.scrollContainer {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.scrollTrack {
+  display: flex;
+  align-items: center;
+}
+
+.scrollContent {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.scrollItem {
+  display: inline-block;
+  white-space: nowrap;
+}

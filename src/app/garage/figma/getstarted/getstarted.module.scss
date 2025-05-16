@@ -1,0 +1,81 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100dvh;
+    align-items: center;
+
+    .containerwraper {
+        display: flex;
+        padding: 10rem 0rem;
+        min-height: 100vh;
+        flex-direction: row;
+        width: 100%;
+        max-width: 200rem;
+        position: relative;
+        background-color: #000;
+
+        .leftpadding {
+            width: 30%;
+        }
+
+        .headerwraper {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            width: 100%;
+            padding: 5rem 0rem;
+
+            gap: 4rem;
+
+            .heading {
+                display: inline-flex;
+                flex-direction: column;
+                gap: 0rem;
+                text-align: center;
+                align-items: flex-start;
+                justify-content: center;
+
+                font-weight: 600;
+                font-size: 4rem;
+                padding: 0.6rem 0rem;
+
+                background: linear-gradient(84deg, #FFF -1.14%, #292929 36.52%, #FFF 106.26%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                line-height: 110%;
+                -webkit-text-fill-color: transparent;
+                position: relative;
+
+                .cursor {
+                    display: flex;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+
+                }
+
+                .subcontainer {
+                    display: inline-flex;
+
+                    .minicontainer {
+                        display: inline-flex;
+                        padding: 0rem 0rem 0rem 1.5rem;
+                        align-items: center;
+                        gap: 1rem;
+                        flex-direction: row;
+                    }
+                }
+            }
+
+            .banner {
+                display: flex;
+                aspect-ratio: 1/1;
+                user-select: none;
+                max-width: 46rem;
+                object-fit: cover;
+                pointer-events: none;
+            }
+        }
+    }
+}

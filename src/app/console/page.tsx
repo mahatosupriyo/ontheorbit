@@ -8,7 +8,7 @@ export default function Home() {
         <>
             <div className={styles.container}>
 
-                <div className={styles.content}>
+                <div className={styles.wrap}>
 
                 </div>
 
@@ -36,14 +36,7 @@ export default function Home() {
                             whileTap={{ opacity: 0.7 }}
                             className={styles.otobtn}
                         >
-                            <Icon name='upload' fill={'#fff'} size={34} />
-                        </motion.button>
-
-                        <motion.button
-                            whileTap={{ opacity: 0.7 }}
-                            className={styles.otobtn}
-                        >
-                            <Icon name='activesearch' fill={'#fff'} size={36} />
+                            <Icon name='resources' fill={'#fff'} size={34} />
                         </motion.button>
                     </div>
                 </div>
