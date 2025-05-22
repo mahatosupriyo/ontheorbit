@@ -75,11 +75,6 @@ const AvatarBtn: React.FC<AvatarBtnProps> = ({ avatarSrc }) => {
                 <Logo name="account" fill="#121212" size={24} />
                 Account settings
               </motion.li>
-              {/* 
-              <motion.li whileTap={{ opacity: 0.6 }} className={styles.option}>
-                <Logo name="otostroke" fill="#121212" size={24} />
-                Orbit Pro
-              </motion.li> */}
 
               <Overlay
                 buttonIcon={<Logo name="otostroke" fill="#121212" size={24} />}

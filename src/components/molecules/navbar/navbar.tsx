@@ -42,10 +42,10 @@ export default function NavBar() {
 
                 {isHomePage ? (
                     <motion.div variants={slideDownVariant} initial="initial" animate="animate">
-                        <AvatarBtn avatarSrc="https://i.scdn.co/image/ab6761610000e5eba80a803733f6a070e8f873fb" />
+                        <AvatarBtn avatarSrc="https://i.pinimg.com/736x/0f/83/6c/0f836caad77b9e5f67dd2eb071fc6ac2.jpg" />
                     </motion.div>
                 ) : (
-                    <AvatarBtn avatarSrc="https://i.scdn.co/image/ab6761610000e5eba80a803733f6a070e8f873fb" />
+                    <AvatarBtn avatarSrc="https://i.pinimg.com/736x/0f/83/6c/0f836caad77b9e5f67dd2eb071fc6ac2.jpg" />
                 )}
             </div>
         </nav>
