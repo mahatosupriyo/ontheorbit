@@ -8,7 +8,6 @@ import styles from "./overlay.module.scss"
 
 interface OverlayProps {
   children: ReactNode
-  title?: string
   fullScreenOnDesktop?: boolean
   buttonText?: string
   buttonClassName?: string
@@ -20,7 +19,6 @@ interface OverlayProps {
 
 export default function Overlay({
   children,
-  title,
   fullScreenOnDesktop = false,
   buttonText = "Open",
   buttonClassName = "",
@@ -77,7 +75,7 @@ export default function Overlay({
     <>
       {/* Trigger Button (only show if not controlled) */}
       {!isControlled && (
-        <motion.button whileTap={{opacity: 0.6}} onClick={handleOpen} className={`${styles.triggerButton} ${buttonClassName}`}>
+        <motion.button whileTap={{ opacity: 0.6 }} onClick={handleOpen} className={`${styles.triggerButton} ${buttonClassName}`}>
           {buttonIcon && <span className={styles.buttonIcon}>{buttonIcon}</span>}
           {buttonText}
         </motion.button>
@@ -101,12 +99,11 @@ export default function Overlay({
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
             >
-              <div className={styles.overlayHeader}>
-                {title && <h2 className={styles.overlayTitle}>{title}</h2>}
-                <button className={styles.closeButton} onClick={handleClose} aria-label="Close overlay">
-                  <X size={24} />
-                </button>
-              </div>
+
+              <button className={styles.closeButton} onClick={handleClose} aria-label="Close overlay">
+                <X size={24} />
+              </button>
+
               <div className={styles.overlayBody}>{children}</div>
             </motion.div>
           </motion.div>
