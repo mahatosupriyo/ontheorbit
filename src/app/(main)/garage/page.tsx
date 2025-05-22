@@ -4,6 +4,7 @@ import styles from './garage.module.scss';
 import CapsuleCard from '@/components/molecules/capsules/capsule';
 import { motion } from 'framer-motion';
 import Overlay from '@/components/overlay/overlay';
+import Icon from '@/components/atoms/icons';
 
 const containerVariants = {
     initial: {},
@@ -34,48 +35,34 @@ export default function GaragePage() {
 
                 <div className={styles.capsulegrid}>
 
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{
-                            opacity: 1,
-                            y: 0,
-                            transition: {
-                                duration: 0.5,
-                                ease: [0.785, 0.135, 0.15, 0.86],
-                            },
-                        }}
-                        className={styles.title}>DROPs</motion.h1>
+                    <div className={styles.dropswraper}>
 
-                    <motion.div
-                        className={styles.drops}
-                        variants={containerVariants}
-                        initial="initial"
-                        animate="animate"
-                    >
-                        <motion.div className={styles.dropcard} variants={itemVariants}>
-                            <CapsuleCard imgSrc="https://i.pinimg.com/736x/ad/01/fd/ad01fde01183d57b43326404d946da5b.jpg" />
-                        </motion.div>
-                        <motion.div className={styles.dropcard} variants={itemVariants}>
-                            <CapsuleCard imgSrc="https://i.pinimg.com/originals/13/1f/bb/131fbb06f6d1218cb8abb39fc01987ce.gif" />
-                        </motion.div>
-                        <motion.div className={styles.dropcard} variants={itemVariants}>
-                            <CapsuleCard imgSrc="https://i.pinimg.com/736x/9f/e5/54/9fe5540569c9f0a0a16fd5453410fb7a.jpg" />
-                        </motion.div>
-                    </motion.div>
+                        <motion.div
+                            className={styles.drops}
+                            variants={containerVariants}
+                            initial="initial"
+                            animate="animate"
+                        >
+                            <motion.div className={styles.dropcard} variants={itemVariants}>
+                                <p className={styles.tag}>Popular</p>
+                                <CapsuleCard imgSrc="https://i.pinimg.com/736x/ad/01/fd/ad01fde01183d57b43326404d946da5b.jpg" />
+                            </motion.div>
+                            <motion.div className={styles.dropcard} variants={itemVariants}>
+                                <p className={styles.tag}>Latest</p>
 
+                                <CapsuleCard imgSrc="https://i.pinimg.com/originals/13/1f/bb/131fbb06f6d1218cb8abb39fc01987ce.gif" />
+                            </motion.div>
+                            <motion.div className={styles.dropcard} variants={itemVariants}>
+                                <p className={styles.tag}>Latest</p>
+
+                                <CapsuleCard imgSrc="https://i.pinimg.com/736x/9f/e5/54/9fe5540569c9f0a0a16fd5453410fb7a.jpg" />
+                            </motion.div>
+                        </motion.div>
+
+                    </div>
 
                     <div className={styles.deengineering}>
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{
-                                opacity: 1,
-                                y: 0,
-                                transition: {
-                                    duration: 0.5,
-                                    ease: [0.785, 0.135, 0.15, 0.86],
-                                },
-                            }}
-                            className={styles.title}>De-Engineering</motion.h1>
+
                         <motion.div
                             className={styles.drops}
                             variants={containerVariants}
@@ -90,6 +77,15 @@ export default function GaragePage() {
                             </motion.div>
                             <motion.div className={styles.dropcard} variants={itemVariants}>
                                 <CapsuleCard imgSrc="https://i.pinimg.com/736x/b7/aa/f1/b7aaf141191a0b53d259b08cf239acd3.jpg" />
+                            </motion.div>
+                            <motion.div className={styles.dropcard} variants={itemVariants}>
+                                <CapsuleCard imgSrc="https://i.pinimg.com/736x/ad/01/fd/ad01fde01183d57b43326404d946da5b.jpg" />
+                            </motion.div>
+                            <motion.div className={styles.dropcard} variants={itemVariants}>
+                                <CapsuleCard imgSrc="https://i.pinimg.com/originals/13/1f/bb/131fbb06f6d1218cb8abb39fc01987ce.gif" />
+                            </motion.div>
+                            <motion.div className={styles.dropcard} variants={itemVariants}>
+                                <CapsuleCard imgSrc="https://i.pinimg.com/736x/9f/e5/54/9fe5540569c9f0a0a16fd5453410fb7a.jpg" />
                             </motion.div>
                         </motion.div>
 

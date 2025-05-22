@@ -41,6 +41,9 @@
                         top: 2rem;
                         right: 2rem;
                         font-size: 1.6rem;
+                        color: #fff;
+                        z-index: 100;
+                        // mix-blend-mode: difference;
                     }
 
 
@@ -54,5 +57,23 @@
     font-family: Instrument Serif;
     font-size: 10rem;
     font-weight: 400;
-    color: hsl(0, 0, 60%);  
+    color: hsl(0, 0, 60%);
+    transition: all 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    cursor: pointer;
+
+    &:hover {
+        color: hsl(0, 0, 100%);
+    }
+}
+
+.capsuleheader {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+
+    flex-direction: row;
+
+
 }

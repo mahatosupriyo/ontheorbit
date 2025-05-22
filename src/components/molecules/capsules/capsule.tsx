@@ -5,14 +5,13 @@ import Icon from "@/components/atoms/icons";
 
 interface CapsuleProps {
     imgSrc: string;
-    href?: string;
     alt?: string;
 }
 
-export default function CapsuleCard({ imgSrc, href = "/garage", alt = "Capsule Image" }: CapsuleProps) {
+export default function CapsuleCard({ imgSrc, alt = "Capsule Image" }: CapsuleProps) {
     return (
         <div className={styles.capsulewraper}>
-            <Link href={href} draggable="false" className={styles.capsulebtn}>
+            <motion.div draggable="false" className={styles.capsulebtn}>
                 <img
                     src={imgSrc}
                     alt={alt}
@@ -21,7 +20,7 @@ export default function CapsuleCard({ imgSrc, href = "/garage", alt = "Capsule I
                 />
 
 
-            </Link>
+            </motion.div>
 
             <motion.button whileTap={{ scale: 0.9 }} className={styles.save}>
                 <Icon name='save' size={28} />
