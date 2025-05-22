@@ -4,7 +4,6 @@ import styles from './garage.module.scss';
 import CapsuleCard from '@/components/molecules/capsules/capsule';
 import { motion } from 'framer-motion';
 import Overlay from '@/components/overlay/overlay';
-import Icon from '@/components/atoms/icons';
 
 const containerVariants = {
     initial: {},
