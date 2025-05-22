@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./faq.module.scss";
-import Icon from "../icons";
 
 interface FAQProps {
   faqs: { question: string; answer: string }[];

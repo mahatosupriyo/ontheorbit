@@ -1,83 +1,53 @@
-"use client"
+"use client";
+import styles from './navbar.module.scss';
+import Icon from '@/components/atoms/icons';
+import AvatarBtn from '@/components/atoms/avatarbtn/avatarbtn';
+import Navigator from '@/app/(main)/navigator/navigator';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import styles from './navbar.module.scss';
+
+const slideDownVariant = {
+    initial: { opacity: 0, y: -20 },
+    animate: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.4,
+            ease: [0.785, 0.135, 0.15, 0.86],
+        },
+    },
+};
 
 export default function NavBar() {
-    const [isScrolled, setIsScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 10) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    const pathname = usePathname();
+    const isHomePage = pathname === '/';
 
     return (
-        <motion.nav className={`${styles.navwraper} ${isScrolled ? styles.scrolled : ''}`}>
-            <div className={styles.nav}>
-                <motion.div
-                    initial={{ y: -100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{
-                        duration: 0.4,
-                        ease: [0.785, 0.135, 0.15, 0.86],
-                    }}
-                    className={styles.leftwraper}>
-                    <Link draggable="false" href="/" className={styles.primarybutton}>
-                        {/* <svg xmlns="http://www.w3.org/2000/svg" className={styles.otoicon} height="36" viewBox="0 0 65 65">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M32.1217 37.2865C34.8097 37.2865 36.9887 35.1075 36.9887 32.4196C36.9887 29.7317 34.8097 27.5527 32.1217 27.5527C29.4338 27.5527 27.2548 29.7317 27.2548 32.4196C27.2548 35.1075 29.4338 37.2865 32.1217 37.2865ZM32.1217 64.5413C49.8621 64.5413 64.2435 50.1599 64.2435 32.4196C64.2435 14.6792 49.8621 0.297852 32.1217 0.297852C14.3814 0.297852 0 14.6792 0 32.4196C0 50.1599 14.3814 64.5413 32.1217 64.5413Z" />
-                        </svg> */}
-
-
-                        <svg xmlns="http://www.w3.org/2000/svg" height="36" viewBox="0 0 1344 365" fill="none">
-                            <path d="M602.24 128C609.584 128 616.52 129.479 623.048 132.437C629.576 135.395 635.237 139.424 640.031 144.524C644.927 149.522 648.752 155.387 651.506 162.119C654.362 168.749 655.79 175.736 655.79 183.08C655.79 190.424 654.362 197.462 651.506 204.194C648.752 210.824 644.927 216.689 640.031 221.789C635.237 226.787 629.576 230.765 623.048 233.723C616.52 236.681 609.584 238.16 602.24 238.16H490.55C483.206 238.16 476.27 236.681 469.742 233.723C463.214 230.765 457.502 226.787 452.606 221.789C447.812 216.689 443.987 210.824 441.131 204.194C438.377 197.462 437 190.424 437 183.08C437 175.736 438.377 168.749 441.131 162.119C443.987 155.387 447.812 149.522 452.606 144.524C457.502 139.424 463.214 135.395 469.742 132.437C476.27 129.479 483.206 128 490.55 128H602.24ZM592.295 167.78H500.495C496.211 167.78 492.59 169.259 489.632 172.217C486.674 175.175 485.195 178.796 485.195 183.08C485.195 187.364 486.674 190.985 489.632 193.943C492.59 196.901 496.211 198.38 500.495 198.38H592.295C596.579 198.38 600.2 196.901 603.158 193.943C606.116 190.985 607.595 187.364 607.595 183.08C607.595 178.796 606.116 175.175 603.158 172.217C600.2 169.259 596.579 167.78 592.295 167.78Z" fill="white" />
-                            <path d="M661.946 129.53H822.596C829.328 129.53 835.346 130.754 840.65 133.202C845.954 135.65 850.442 138.914 854.114 142.994C857.786 146.972 860.591 151.511 862.529 156.611C864.467 161.711 865.436 166.964 865.436 172.37C865.436 176.96 864.671 181.499 863.141 185.987C861.713 190.475 859.571 194.606 856.715 198.38C853.961 202.154 850.544 205.418 846.464 208.172C842.486 210.926 837.947 212.915 832.847 214.139L865.436 236.63H803.012L771.953 215.21H710.294V236.63H661.946V129.53ZM710.294 166.25V178.49H810.356C814.844 178.49 817.088 176.45 817.088 172.37C817.088 168.29 814.844 166.25 810.356 166.25H710.294Z" fill="white" />
-                            <path d="M871.651 129.53H1036.89C1042.5 129.53 1047.65 130.193 1052.34 131.519C1057.04 132.845 1061.07 134.834 1064.43 137.486C1067.8 140.036 1070.4 143.198 1072.23 146.972C1074.17 150.746 1075.14 155.132 1075.14 160.13C1075.14 165.332 1073.97 169.871 1071.62 173.747C1069.38 177.623 1066.11 180.734 1061.83 183.08C1066.11 185.426 1069.38 188.537 1071.62 192.413C1073.97 196.289 1075.14 200.828 1075.14 206.03C1075.14 211.028 1074.17 215.414 1072.23 219.188C1070.4 222.962 1067.8 226.175 1064.43 228.827C1061.07 231.377 1057.04 233.315 1052.34 234.641C1047.65 235.967 1042.5 236.63 1036.89 236.63H871.651V129.53ZM920 169.31H1020.06C1024.55 169.31 1026.79 167.27 1026.79 163.19C1026.79 159.11 1024.55 157.07 1020.06 157.07H920V169.31ZM1020.06 209.09C1024.55 209.09 1026.79 207.05 1026.79 202.97C1026.79 198.89 1024.55 196.85 1020.06 196.85H920V209.09H1020.06Z" fill="white" />
-                            <path d="M1082.85 129.53H1131.2V236.63H1082.85V129.53Z" fill="white" />
-                            <path d="M1217.87 166.25H1140.45V129.53H1343.94V166.25H1266.22V236.63H1217.87V166.25Z" fill="white" />
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M182.5 210.152C197.772 210.152 210.152 197.772 210.152 182.5C210.152 167.228 197.772 154.848 182.5 154.848C167.228 154.848 154.848 167.228 154.848 182.5C154.848 197.772 167.228 210.152 182.5 210.152ZM182.5 365C283.292 365 365 283.292 365 182.5C365 81.708 283.292 0 182.5 0C81.708 0 0 81.708 0 182.5C0 283.292 81.708 365 182.5 365Z" fill="white" />
-                        </svg>
+        <nav className={styles.navbarwraper}>
+            <div className={styles.navbarcontainer}>
+                {isHomePage ? (
+                    <motion.div whileTap={{ scale: 0.96 }} variants={slideDownVariant} initial="initial" animate="animate">
+                        <Link href="/">
+                            <Icon name="oto" size={54} />
+                        </Link>
+                    </motion.div>
+                ) : (
+                    <Link href="/">
+                        <Icon name="oto" size={54} />
                     </Link>
-                </motion.div>
+                )}
 
-                <div className={styles.righlinktwraper}>
-                    <motion.div
-                        initial={{ y: -100, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{
-                            duration: 0.4,
-                            delay: 0.2,
-                            ease: [0.785, 0.135, 0.15, 0.86],
-                        }}
-                        className={styles.linkslist}>
-                        <Link className={styles.link} href="/">Get Started</Link>
-                        <Link className={styles.link} href="/">Features</Link>
-                        <Link className={styles.link} href="/garage/figma/getstarted">Resources</Link>
-                    </motion.div>
+                {!isHomePage && <Navigator />}
 
-                    <motion.div
-                        initial={{ y: -100, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{
-                            duration: 0.4,
-                            delay: 0.3,
-                            ease: [0.785, 0.135, 0.15, 0.86],
-                        }}
-                        className={styles.rightwraper}>
-                        <motion.button whileTap={{ opacity: 0.6 }} className={styles.btn}>Log in</motion.button>
+                {isHomePage ? (
+                    <motion.div variants={slideDownVariant} initial="initial" animate="animate">
+                        <AvatarBtn avatarSrc="https://i.scdn.co/image/ab6761610000e5eba80a803733f6a070e8f873fb" />
                     </motion.div>
-                </div>
+                ) : (
+                    <AvatarBtn avatarSrc="https://i.scdn.co/image/ab6761610000e5eba80a803733f6a070e8f873fb" />
+                )}
             </div>
-        </motion.nav>
+        </nav>
     );
 }

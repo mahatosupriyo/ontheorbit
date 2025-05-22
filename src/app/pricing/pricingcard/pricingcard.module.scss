@@ -9,25 +9,24 @@
     --mouse-y: 0px;
 
     &.hovered {
-        transform: translateY(-8px);
 
         .cardBorder {
             opacity: 1;
         }
 
         .ctaButton {
-            // background: linear-gradient(90deg, #6366f1, #8b5cf6);
             color: white;
         }
     }
 
     &.popular {
         .cardBorder {
-            opacity: 0.7;
+            opacity: 0.8;
+
             background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
-                    rgba(99, 102, 241, 0.8),
-                    rgba(139, 92, 246, 0.8),
-                    rgba(236, 72, 153, 0.6),
+                    hsla(0, 0%, 75%, 0.8),
+                    hsla(0, 0%, 48%, 0.8),
+                    hsla(0, 0%, 32%, 0.6),
                     transparent 40%);
         }
     }

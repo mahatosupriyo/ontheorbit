@@ -1,238 +1,91 @@
-.container {
-  display: flex;
-  flex-direction: column;
+.wraper {
   width: 100%;
-  min-height: 100dvh;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  background-color: hsl(0, 0, 6%);
 
-  .containerwraper {
-    display: flex;
-    padding: 10rem 0rem;
-    min-height: 100vh;
-    flex-direction: row;
+  .container {
+    min-height: 100dvh;
     width: 100%;
     max-width: 200rem;
-    position: relative;
-
-    .background {
-      position: absolute;
-      z-index: 0;
-      width: 100%;
-      top: 0;
-      background: rgba(65, 0, 245, 0.96);
-      background-color: #181818;
-      // background: #000;
-      overflow: hidden;
-
-      &::after {
-        overflow: hidden;
-        content: "";
-        // background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
-        height: 300%;
-        width: 300%;
-        position: absolute;
-        opacity: 0.1;
-        // animation: animateGrain 8s steps(10) infinite;
-      }
-    }
-
-    @keyframes animateGrain {
-
-      0%,
-      100% {
-        transform: translate(0, 0)
-      }
-
-      10% {
-        transform: translate(-5%, -10%)
-      }
-
-      20% {
-        transform: translate(-15%, -20%)
-      }
-
-      30% {
-        transform: translate(-5%, -10%)
-      }
-
-      40% {
-        transform: translate(-15%, -20%)
-      }
-
-      50% {
-        transform: translate(-5%, -10%)
-      }
-
-      60% {
-        transform: translate(-15%, -20%)
-      }
-
-      70% {
-        transform: translate(-5%, -10%)
-      }
-
-      80% {
-        transform: translate(-15%, -20%)
-      }
-
-      90% {
-        transform: translate(-5%, -10%)
-      }
-
-      100% {
-        transform: translate(-15%, -20%)
-      }
-
-    }
-
-    .leftpadding {
-      width: 30%;
-    }
-  }
-
-
-}
-
-.logo {
-  height: 6rem;
-}
-
-
-.headerwraper {
-  width: 100%;
-  padding: 6rem 10rem 0rem 0rem;
-  display: flex;
-  flex-direction: column;
-  gap: 6rem;
-  justify-content: center;
-
-
-
-  .description {
-    font-size: 1.7rem;
-    font-weight: 500;
-    width: 50%;
-    color: hsla(0, 0%, 100%, 0.6);
-    position: relative;
-
-    .cursor {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      transform: translate(12rem, -15rem);
-      stroke: #FFC43E;
-    }
-  }
-
-  .centeredtxt {
-    color: hsla(0, 0%, 100%, 1);
-
-    font-size: 12rem;
-    font-style: normal;
-    letter-spacing: -0.2rem;
-    font-weight: 800;
-    line-height: 100%;
-    text-transform: uppercase;
-    // mix-blend-mode: difference;
-
-    .theory {
-      position: relative;
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: flex-end;
-
-      .underline {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        stroke: rgba(255, 70, 50, 0.96);
-      }
-
-      .pro {
-        position: relative;
-        display: flex;
-        flex-direction: row;
-
-        .prologo {
-          fill: none;
-          position: absolute;
-          right: 0;
-          stroke: #9cfce1f5;
-        }
-      }
-    }
-
-  }
-}
-
-
-
-
-.spacesection {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 200rem;
-  background-color: #837052;
-  // background-color: hsl(0, 0, 10%);
-
-  .spacecontainer {
-    min-height: 100vh;
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 2rem 10rem;
-
-    flex-direction: row;
-
-    .spaceheader {
+    justify-content: center;
+    padding: 10rem 2rem;
+    .main {
       display: flex;
-      align-items: flex-start;
-      flex-direction: column;
+      flex-direction: row;
+      gap: 1.6rem;
 
-      gap: 2rem;
-      width: 50%;
-      // max-width: 40rem;
+      @media only screen and (max-width: 600px) {
+        flex-direction: column;
+        width: 100%;
 
+        .pagebtn {
+          display: flex;
+          width: 100%;
+          align-items: flex-start;
+          justify-content: flex-start;
+          font-size: 4rem;
 
+          .pagebanner {
+            height: 4rem;
+          }
+        }
+      }
 
-      .sectiontitle {
+      .pagebtn {
+        background-color: hsl(0, 0, 16%);
+        border-radius: 100rem;
+
         font-size: 6rem;
-        font-weight: 500;
+        color: hsl(0, 0, 90%);
+        font-family: Instrument Serif;
 
-        // text-transform: uppercase;
-        color: hsl(0, 0, 96%);
-      }
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.6rem;
 
-      .sectiondesc {
-        font-size: 2.2rem;
-        font-weight: 400;
-        color: hsl(0, 0, 50%);
-        max-width: 50rem;
-
-      }
-    }
-
-
-
-    .videocontainer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .videobanner {
-        width: 50%;
+        padding: 1.2rem;
+        padding-right: 3.4rem;
         user-select: none;
-        pointer-events: none;
-        aspect-ratio: 1/1;
-        object-fit: cover;
-        mix-blend-mode: color-dodge;
+        cursor: pointer;
+        transition: 0.2s cubic-bezier(.51, .92, .24, 1.15);
+        outline: 0.3rem solid hsl(0, 0, 10%);
+        outline-offset: 0.2rem;
+
+        &:hover {
+          outline-offset: 0.2rem;
+          outline: 0.3rem solid hsl(0, 0, 20%);
+        }
+
+        &:focus {
+          outline-offset: 0.2rem;
+          outline: 0.3rem solid hsl(0, 0, 30%);
+        }
+
+        @media only screen and (max-width: 300px) {
+          font-size: 4rem;
+        }
+
+        .pagebanner {
+          border-radius: 100rem;
+          object-fit: cover;
+          object-position: center;
+          aspect-ratio: 1/1;
+          height: 10rem;
+          pointer-events: none;
+
+          @media only screen and (max-width: 300px) {
+            height: 6rem;
+          }
+        }
+
+
       }
     }
-
   }
 }

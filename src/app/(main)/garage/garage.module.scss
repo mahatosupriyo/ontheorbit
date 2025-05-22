@@ -1,0 +1,57 @@
+.wraper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .container {
+        width: 100%;
+        max-width: 200rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .capsulegrid {
+            padding: 20rem 2rem;
+            display: flex;
+            z-index: 99;
+            flex-direction: column;
+            gap: 2rem;
+
+            .deengineering {
+                display: flex;
+                padding: 10rem 0rem;
+                flex-direction: column;
+                gap: 2rem;
+
+            }
+
+            .drops {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                width: 100%;
+                gap: 2rem;
+
+                .dropcard {
+                    position: relative;
+
+                    .tag {
+                        display: flex;
+                        position: absolute;
+                        top: 2rem;
+                        right: 2rem;
+                        font-size: 1.6rem;
+                    }
+
+
+                }
+            }
+        }
+    }
+}
+
+.title {
+    font-family: Instrument Serif;
+    font-size: 10rem;
+    font-weight: 400;
+}
