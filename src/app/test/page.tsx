@@ -13,7 +13,7 @@ export default function Home() {
           <h2 className="text-xl font-semibold">Basic Usage</h2>
           <p className="text-gray-600 mb-4 text-center">Simple overlay with default button</p>
 
-          <Overlay title="Basic Overlay">
+          <Overlay>
             <div className="p-4">
               <p>This overlay uses the default button and styling.</p>
               <p className="mt-4">Click outside or the X to close.</p>
@@ -26,7 +26,6 @@ export default function Home() {
           <p className="text-gray-600 mb-4 text-center">Overlay with custom button text and icon</p>
 
           <Overlay
-            title="Custom Button Overlay"
             buttonText="Open Info"
             buttonIcon={<Info size={18} />}
             buttonClassName="bg-purple-600 hover:bg-purple-700"
@@ -43,7 +42,6 @@ export default function Home() {
           <p className="text-gray-600 mb-4 text-center">Overlay that's full screen on all devices</p>
 
           <Overlay
-            title="Full Screen Overlay"
             fullScreenOnDesktop={true}
             buttonText="Open Full Screen"
             buttonIcon={<Maximize size={18} />}
@@ -61,7 +59,6 @@ export default function Home() {
           <p className="text-gray-600 mb-4 text-center">Typical mobile menu implementation</p>
 
           <Overlay
-            title="Menu"
             buttonText="Menu"
             buttonIcon={<Menu size={18} />}
             buttonClassName="bg-gray-800 hover:bg-gray-900"
