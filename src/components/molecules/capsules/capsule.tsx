@@ -11,17 +11,21 @@ interface CapsuleProps {
 
 export default function CapsuleCard({ imgSrc, href = "/garage", alt = "Capsule Image" }: CapsuleProps) {
     return (
-        <Link href={href} draggable="false" className={styles.capsulebtn}>
-            <img
-                src={imgSrc}
-                alt={alt}
-                draggable="false"
-                className={styles.capsulebanner}
-            />
+        <div className={styles.capsulewraper}>
+            <Link href={href} draggable="false" className={styles.capsulebtn}>
+                <img
+                    src={imgSrc}
+                    alt={alt}
+                    draggable="false"
+                    className={styles.capsulebanner}
+                />
+
+
+            </Link>
 
             <motion.button whileTap={{ scale: 0.9 }} className={styles.save}>
                 <Icon name='save' size={28} />
             </motion.button>
-        </Link>
+        </div>
     );
 }

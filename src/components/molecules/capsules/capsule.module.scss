@@ -1,34 +1,14 @@
-.capsulebtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 1rem;
+.capsulewraper {
     position: relative;
 
     &:hover {
+
         .save {
             transform: translateY(0rem);
             opacity: 1;
         }
-    }
 
-    &::after{
-        content: '';
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-color: hsl(0, 0, 0%, 0.1);
-    }
 
-    .capsulebanner {
-        aspect-ratio: 1/1;
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-        pointer-events: none;
-        user-select: none;
     }
 
     .save {
@@ -49,4 +29,34 @@
             outline-offset: 0.2rem;
         }
     }
+
+
+    .capsulebtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 1rem;
+
+        &::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: hsl(0, 0, 0%, 0.1);
+        }
+
+        .capsulebanner {
+            aspect-ratio: 1/1;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            pointer-events: none;
+            user-select: none;
+        }
+
+
+    }
+
 }

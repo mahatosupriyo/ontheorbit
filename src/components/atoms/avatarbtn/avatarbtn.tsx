@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from './avatarbtn.module.scss';
 import Logo from '@/components/atoms/icons';
 import { motion, AnimatePresence } from 'framer-motion';
-import Overlay from "@/components/overlay/overlay";
 
 type AvatarBtnProps = {
   avatarSrc?: string;
@@ -75,19 +74,12 @@ const AvatarBtn: React.FC<AvatarBtnProps> = ({ avatarSrc }) => {
                 <Logo name="account" fill="#121212" size={24} />
                 Account settings
               </motion.li>
-              {/* 
+
               <motion.li whileTap={{ opacity: 0.6 }} className={styles.option}>
                 <Logo name="otostroke" fill="#121212" size={24} />
                 Orbit Pro
-              </motion.li> */}
+              </motion.li>
 
-              <Overlay
-                buttonIcon={<Logo name="otostroke" fill="#121212" size={24} />}
-                buttonText="Orbit Pro"
-              >
-                this is pro
-                <br /><br /><br /><br />
-              </Overlay>
 
               <motion.li whileTap={{ opacity: 0.6 }} className={styles.option}>
                 <Logo name="help" fill="#121212" size={24} />
