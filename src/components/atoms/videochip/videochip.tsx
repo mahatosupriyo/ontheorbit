@@ -1,7 +1,6 @@
 "use client";
 import Link from 'next/link';
 import styles from './videochip.module.scss';
-import { motion } from 'framer-motion';
 
 interface VideoChipProps {
     videourl: string;
