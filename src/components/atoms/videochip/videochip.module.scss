@@ -69,6 +69,8 @@ $Width: 16rem;
             max-width: $Width;
             min-width: $Width;
 
+            user-select: none;
+            pointer-events: none;
             object-fit: cover;
             object-position: center;
 

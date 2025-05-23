@@ -12,7 +12,7 @@ interface VideoChipProps {
 export default function VideoChip({ videourl, imageBanner, label, title }: VideoChipProps) {
     return (
         <div className={styles.videochipwraper}>
-            <Link href={videourl} className={styles.videolink}>
+            <Link draggable="false" href={videourl} className={styles.videolink}>
                 <img
                     src={imageBanner}
                     draggable="false"
