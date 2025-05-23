@@ -1,19 +1,50 @@
-.wraper{
+.wraper {
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    .container{
+
+    .container {
         width: 100%;
         max-width: 200rem;
         display: flex;
 
-        .playerwraper{
+        .playerwraper {
             width: 100%;
             padding: 10rem 2rem;
             border-radius: 1rem;
             overflow: hidden;
-            max-width: 120rem;
+
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            .videolabel {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                border-radius: 1rem;
+                padding: 2rem 3rem;
+                background-color: hsl(0, 0, 16%);
+                border: 0.16rem solid hsl(0, 0%, 20%);
+
+                .eplabel {
+                    font-size: 1.46rem;
+                    opacity: 0.6;
+                }
+
+                .title {
+                    font-weight: 700;
+                    font-size: 2rem;
+                }
+            }
+
+        }
+
+        .videochipcontainer {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
     }
 }
