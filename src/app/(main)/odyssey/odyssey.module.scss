@@ -15,16 +15,38 @@
             border-radius: 1rem;
             overflow: hidden;
 
+            gap: 1rem;
+
             display: flex;
             flex-direction: column;
-            gap: 0.6rem;
+
+            .playercontainer{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                gap: 2rem;
+                align-items: flex-start;
+                justify-content: flex-start;
+
+                .videochipwraper{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 2rem 0rem 0rem 0rem;
+                    background-color: hsl(0, 0, 16%);
+                    gap: 0rem;
+
+                    .wraperheader{
+                        padding: 1.2rem 2rem 2rem 2rem;
+                    }
+                }
+            }
 
             .videolabel {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 width: 100%;
-                align-items: flex-start;
+                align-items: center;
                 gap: 1rem;
                 border-radius: 1rem;
 

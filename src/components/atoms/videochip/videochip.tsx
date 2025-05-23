@@ -3,16 +3,28 @@ import Link from 'next/link';
 import styles from './videochip.module.scss';
 import { motion } from 'framer-motion';
 
-export default function VideoChip() {
+interface VideoChipProps {
+    videourl: string;
+    imageBanner: string;
+    label: string;
+    title: string;
+}
+
+export default function VideoChip({ videourl, imageBanner, label, title }: VideoChipProps) {
     return (
         <div className={styles.videochipwraper}>
-            <Link href="/" className={styles.videolink}>
+            <Link href={videourl} className={styles.videolink}>
                 <img
-                    src="https://i.pinimg.com/originals/d9/11/1b/d9111be911dd2f932a5242cf958d336e.gif"
+                    src={imageBanner}
                     draggable="false"
-                    className={styles.videobanner} />
+                    className={styles.videobanner}
+                    alt={title}
+                />
+                <div className={styles.videoinfo}>
+                    <p className={styles.label}>{label}</p>
+                    <h3 className={styles.videotitle}>{title}</h3>
+                </div>
             </Link>
-            <h3 className={styles.videotitle}>Episode : 2 | Visual Technique Library</h3>
         </div>
-    )
+    );
 }
