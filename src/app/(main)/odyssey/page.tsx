@@ -1,11 +1,10 @@
 "use client";
+import React, { useState } from 'react';
 import NavBar from '@/components/molecules/navbar/navbar';
 import styles from './odyssey.module.scss';
 import Video from 'next-video';
 import getStarted from '/videos/get-started.mp4';
 import { motion } from 'framer-motion';
-import Icon from '@/components/atoms/icons';
-import Link from 'next/link';
 import VideoChip from '@/components/atoms/videochip/videochip';
 
 const containerVariants = {
@@ -30,6 +29,7 @@ const itemVariants = {
 };
 
 export default function OdysseyPage() {
+
     return (
         <div className={styles.wraper}>
             <div className={styles.container}>
@@ -86,6 +86,7 @@ export default function OdysseyPage() {
                                     videourl='/'
                                     imageBanner='https://i.pinimg.com/736x/73/4e/e1/734ee14b886e273d70442a7dcddc48e9.jpg'
                                     label='Episode II'
+                                    premium={true}
                                     title='You Can Do It | Out of Home | D&AD Awards 2024 Shortlist'
                                 />
 
@@ -99,6 +100,7 @@ export default function OdysseyPage() {
                                     imageBanner='https://i.pinimg.com/736x/f9/56/43/f9564358e9b356d8bed014e5dfb4500e.jpg'
                                     label='Episode III'
                                     title='Jush! - Edgar Bąk'
+                                    premium={true}
                                 />
 
                             </motion.div>
