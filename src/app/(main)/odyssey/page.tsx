@@ -42,9 +42,25 @@ export default function OdysseyPage() {
                         exit="exit"
                         variants={containerVariants}
                         className={styles.playercontainer}>
-                        <motion.div variants={itemVariants} style={{ width: '100%', height: '100%', overflow: 'hidden' }}>
-                            <Video className={styles.playercomp} style={{ width: '100%', userSelect: 'none', pointerEvents: 'none', height: '100%' }} src={getStarted} />
+                        <motion.div variants={itemVariants} className={styles.playersection}>
+                            <motion.div style={{ width: '100%', overflow: 'hidden' }}>
+                                <Video className={styles.playercomp} style={{ width: '100%', userSelect: 'none', pointerEvents: 'none', height: '100%' }} src={getStarted} />
+                            </motion.div>
+
+
+                            <div className={styles.videolabel}>
+
+                                <div className={styles.videoinfo}>
+                                    <p className={styles.eplabel}>Episode I</p>
+                                    <h2 className={styles.title}>
+                                        Visual composition and technique library
+                                    </h2>
+                                </div>
+
+
+                            </div>
                         </motion.div>
+
                         <motion.div className={styles.videochipwraper}
                             variants={containerVariants}
                             initial="initial"
@@ -58,8 +74,8 @@ export default function OdysseyPage() {
                                 <VideoChip
                                     videourl='/'
                                     imageBanner='https://i.pinimg.com/736x/48/2b/22/482b22ce795d2868d307a82d69d74082.jpg'
-                                    label='Episode one'
-                                    title='Visual composition and technique library'
+                                    label='Episode I'
+                                    title='Introduction - Breaking the Ice'
                                 />
 
                             </motion.div>
@@ -69,7 +85,7 @@ export default function OdysseyPage() {
                                 <VideoChip
                                     videourl='/'
                                     imageBanner='https://i.pinimg.com/736x/73/4e/e1/734ee14b886e273d70442a7dcddc48e9.jpg'
-                                    label='Episode two'
+                                    label='Episode II'
                                     title='You Can Do It | Out of Home | D&AD Awards 2024 Shortlist'
                                 />
 
@@ -81,8 +97,45 @@ export default function OdysseyPage() {
                                 <VideoChip
                                     videourl='/'
                                     imageBanner='https://i.pinimg.com/736x/f9/56/43/f9564358e9b356d8bed014e5dfb4500e.jpg'
-                                    label='Episode three'
+                                    label='Episode III'
                                     title='Jush! - Edgar Bąk'
+                                />
+
+                            </motion.div>
+
+                            <motion.div variants={itemVariants}>
+
+
+                                <VideoChip
+                                    videourl='/'
+                                    imageBanner='https://i.pinimg.com/736x/e1/39/33/e13933e2c75456f1145fb8d8aa53476e.jpg'
+                                    label='Episode IV'
+                                    title='Nico Edge Port'
+                                />
+
+                            </motion.div>
+
+
+                            <motion.div variants={itemVariants}>
+
+
+                                <VideoChip
+                                    videourl='/'
+                                    imageBanner='https://i.pinimg.com/736x/23/e9/e0/23e9e06f6ece42b27afe5d40d107aea3.jpg'
+                                    label='Episode V'
+                                    title='Nico Edge Port'
+                                />
+
+                            </motion.div>
+
+                            <motion.div variants={itemVariants}>
+
+
+                                <VideoChip
+                                    videourl='/'
+                                    imageBanner='https://i.pinimg.com/736x/f6/e9/0a/f6e90ab1507281ea6dee5bcfef5a6559.jpg'
+                                    label='Episode VI'
+                                    title='Nico Edge Port'
                                 />
 
                             </motion.div>
@@ -90,17 +143,6 @@ export default function OdysseyPage() {
                         </motion.div>
                     </motion.div>
 
-                    <div className={styles.videolabel}>
-
-                        <div className={styles.videoinfo}>
-                            <p className={styles.eplabel}>Episode one</p>
-                            <h2 className={styles.title}>
-                                Visual composition and technique library
-                            </h2>
-                        </div>
-
-
-                    </div>
 
                 </div>
             </div>
