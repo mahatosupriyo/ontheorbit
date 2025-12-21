@@ -95,6 +95,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                              * - Styling is controlled via CSS modules
                              */}
                             <input
+                                spellCheck="false"
                                 ref={ref}
                                 className={`${styles.input} ${styles[variant]}`}
                                 {...props}

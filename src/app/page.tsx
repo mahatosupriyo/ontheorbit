@@ -2,9 +2,8 @@ import { auth } from "@/auth";
 import { db } from "@/server/db";
 import { users } from "@/server/db/schema/auth";
 import { eq } from "drizzle-orm";
-import Link from "next/link";
 import styles from "./home.module.scss";
-import { ProfileForm } from "./test/component";
+import { ProfileForm } from "../components/layout/profileform";
 import AvatarUpload from "@/app/(dashboard)/avatarupload/avatarupload"
 import { getAvatarUrl } from "@/server/utils/awsavatarsigner";
 

@@ -22,6 +22,7 @@ import { useAvatarStore } from "@/server/store/avatar/avatarstore";
 import { uploadAvatar } from "@/server/actions/uploadavatar";
 import { useState, useRef, useEffect } from "react";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 export default function AvatarUpload({
     initialUrl,
@@ -138,7 +139,9 @@ export default function AvatarUpload({
          * - Clickable to trigger file selection
          * - Circular crop using border-radius
          */
-        <div
+        <motion.div
+            whileHover={{ scale: 0.98 }}
+            whileTap={{scale: 1}}
             onClick={() => !isUploading && fileInputRef.current?.click()}
             style={{
                 maxWidth: "20rem",
@@ -154,7 +157,7 @@ export default function AvatarUpload({
              * - Pointer events disabled to allow parent click handling
              * - Non-draggable for better UX
              */}
-            <img
+            <motion.img
                 src={displayUrl}
                 alt="Avatar"
                 draggable={false}
@@ -200,6 +203,6 @@ export default function AvatarUpload({
                 accept="image/png, image/jpeg, image/webp"
                 style={{ display: "none" }}
             />
-        </div>
+        </motion.div>
     );
 }

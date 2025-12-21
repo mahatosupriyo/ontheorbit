@@ -3,7 +3,7 @@
 import { Input } from "@/components/ui/input/input";
 import { Button } from "@/components/ui/button/button";
 import { TextArea } from "@/components/ui/textarea/textarea";
-import styles from "../home.module.scss";
+import styles from "@/components/layout/profileform.module.scss";
 
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useMemo } from "react";
@@ -249,7 +249,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
                     fullWidth
                 />
 
-                <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+                <div>
                     <RadioGroup
                         label="Gender"
                         name="gender"
