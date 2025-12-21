@@ -1,0 +1,195 @@
+/* ============================================================
+   Design Tokens / Variables
+   ============================================================ */
+
+/* --- Color Palette --- */
+$color-bg-main: #000; // Primary input background
+$color-bg-option: #09090b; // Dropdown option background
+
+$color-text-primary: #fff; // Main text color
+$color-text-muted: #888; // Labels
+$color-text-helper: #666; // Helper text
+$color-text-placeholder: #444; // Placeholder text
+
+$color-border-default: #333; // Default input border
+$color-border-focus: #22c55e; // Focus state (green)
+$color-border-error: #950606; // Error state (red)
+
+/* --- Glow / Outline Colors --- */
+$glow-focus: hsl(142, 71%, 20%);
+$glow-error: hsl(0, 92%, 20%);
+
+/* --- Spacing & Sizing --- */
+$radius-lg: 1.4rem;
+$padding-y: 1.4rem;
+$padding-x: 1.6rem;
+$gap-sm: 0.5rem;
+$gap-md: 0.7rem;
+$gap-lg: 1.6rem;
+
+/* --- Typography --- */
+$font-size-label: 1rem;
+$font-size-input: 1.6rem;
+$font-size-helper: 1.2rem;
+
+/* --- Borders & Effects --- */
+$border-width: 0.14rem;
+$outline-width: 0.2rem;
+$transition-fast: 0.2s ease-in-out;
+
+
+/* ============================================================
+   Container Layout
+   ============================================================ */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-sm;
+    margin-bottom: $gap-lg;
+}
+
+
+/* ============================================================
+   Input Wrapper (Visual Shell)
+   ============================================================ */
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+
+    /* Core visual styling */
+    background-color: $color-bg-main;
+    border: $border-width solid $color-border-default;
+    border-radius: $radius-lg;
+    padding: $padding-y $padding-x;
+
+    /* Smooth hover/focus transitions */
+    transition: all $transition-fast;
+
+    /* Default outline kept transparent to avoid layout shift */
+    outline: $outline-width solid transparent;
+
+    /* Focus state: green border + subtle glow */
+    &:focus-within {
+        border-color: $color-border-focus;
+        outline: $outline-width solid $glow-focus;
+    }
+
+    /* Hover affordance for discoverability */
+    &:hover {
+        outline: $outline-width solid $glow-focus;
+    }
+
+    /* Modifier: full-width layout */
+    &.fullWidth {
+        width: 100%;
+    }
+
+    /* Modifier: error state */
+    &.error {
+        border-color: $color-border-error !important;
+        box-shadow: 0 0 0 1px $color-border-error;
+
+        &:hover {
+            outline: $outline-width solid $glow-error;
+        }
+
+        &:focus-within {
+            border-color: $color-border-error;
+            outline: $outline-width solid $glow-error;
+        }
+    }
+
+    /* Disabled state handling */
+    :disabled {
+        cursor: not-allowed;
+    }
+}
+
+
+/* ============================================================
+   Label
+   ============================================================ */
+
+.label {
+    font-size: $font-size-label;
+    font-weight: 600;
+    color: $color-text-muted;
+
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
+}
+
+
+/* ============================================================
+   Input Element
+   ============================================================ */
+
+.input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: $color-text-primary;
+    font-size: $font-size-input;
+    font-weight: 500;
+    font-family: inherit;
+    padding: 0;
+
+    /* Placeholder styling */
+    &::placeholder {
+        color: $color-text-placeholder;
+    }
+
+    /* Select dropdown options */
+    option {
+        background-color: $color-bg-option;
+        color: $color-text-primary;
+    }
+
+    /* Disable browser grammar/spell underlines */
+    ::spelling-error,
+    ::grammar-error {
+        text-decoration: none;
+    }
+
+    /* Remove Chrome autofill background */
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+        -webkit-text-fill-color: $color-text-primary;
+        -webkit-box-shadow: 0 0 0px 1000px $color-bg-main inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+    /* Hide number input spinners (WebKit browsers) */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Hide number input spinners (Firefox) */
+    &[type=number] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+    }
+}
+
+
+/* ============================================================
+   Helper Text
+   ============================================================ */
+
+.helper {
+    font-size: $font-size-helper;
+    font-weight: 500;
+    color: $color-text-helper;
+    display: flex;
+    padding-left: $padding-y;
+}

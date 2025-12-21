@@ -1,88 +1,51 @@
-"use client";
-
-import NavBar from '@/components/molecules/navbar/navbar';
-import styles from './home.module.scss';
-import Link from 'next/link';
-import { motion, AnimatePresence, delay, stagger } from 'framer-motion';
-import { usePathname } from 'next/navigation';
-
-const transition = {
-  duration: 0.2,
-  ease: [0.785, 0.135, 0.15, 0.86],
-};
-
-const containerVariants = {
-  initial: {},
-  exit: { opacity: 0, y: 20, transition },
-
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const childVariants = {
-  initial: { opacity: 0, y: 20 },
-  exit: { opacity: 0, y: 20, transition },
-
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.785, 0.135, 0.15, 0.86],
-    },
-  },
-};
+import { auth } from "@/auth";
+import { db } from "@/server/db";
+import { users } from "@/server/db/schema/auth";
+import { eq } from "drizzle-orm";
+import Link from "next/link";
+import styles from "./home.module.scss";
+import { ProfileForm } from "./test/component";
+import AvatarUpload from "@/app/(dashboard)/avatarupload/avatarupload"
+import { getAvatarUrl } from "@/server/utils/awsavatarsigner";
 
 
-export default function Home() {
-  const pathname = usePathname();
+export default async function ProfileSettingsPage() {
+  const session = await auth();
+  if (!session?.user) return <div>Please log in</div>;
+
+  const user = await db.query.users.findFirst({
+    where: eq(users.id, session.user.id),
+  });
+
+  if (!user) return <div>User not found</div>;
+
+  const secureAvatarUrl = getAvatarUrl(user?.image ?? null);
 
   return (
-    <div className={styles.wraper}>
-      <div className={styles.container}>
-        <NavBar />
-        <AnimatePresence mode="wait">
-          <div>
-            <motion.div
-              key={pathname}
-              className={styles.main}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={containerVariants}
-            >
-              <motion.div whileTap={{ scale: 0.99 }} variants={childVariants}>
-                <Link href="/garage" className={styles.pagebtn}>
-                  <img
-                    className={styles.pagebanner}
-                    src="https://i.ibb.co/VYv07CYx/image.png"
-                    draggable="false"
-                  />
-                  Garage
-                </Link>
+    <div className={styles.container}>
 
-              </motion.div>
+      {/* Main Content */}
+      <main className={styles.mainContent}>
 
-              <motion.div whileTap={{ scale: 0.99 }} variants={childVariants}>
-                <Link href="/odyssey" className={styles.pagebtn}>
-                  <img
-                    className={styles.pagebanner}
-                    src="https://i.ibb.co/qFss7b0v/image2.png"
-                    draggable="false"
-                  />
-                  Odyssey
-                </Link>
-              </motion.div>
+        {/* THE 3-COLUMN GRID LAYOUT */}
+        <div className={styles.profileGrid}>
 
-
-            </motion.div>
-
+          {/* Column 1: Avatar (Left) */}
+          <div className={styles.leftCol}>
+            <span className={styles.avatarLabel}>Photo</span>
+            <AvatarUpload initialUrl={secureAvatarUrl} />
           </div>
-        </AnimatePresence>
-      </div>
+
+          {/* Column 2: Form (Center) */}
+          <div className={styles.centerCol}>
+            <ProfileForm user={user} />
+          </div>
+
+          {/* Column 3: Blank (Right) */}
+          <div className={styles.rightCol}></div>
+
+        </div>
+      </main>
     </div>
   );
 }

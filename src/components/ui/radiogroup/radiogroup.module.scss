@@ -1,0 +1,155 @@
+/* ============================================================
+   Design Tokens / Variables
+   ============================================================ */
+
+/* --- Colors --- */
+$color-text-muted: #888; // Default label and option text
+$color-text-active: #fff; // Hovered / selected option text
+
+$color-border-radio: #444; // Unselected radio border
+$color-radio-accent: #22c55e; // Selected radio (green)
+$color-radio-hole: #000; // Inner dot "hole" color
+
+/* --- Spacing & Sizing --- */
+$padding-wrapper-y: 4rem;
+$padding-wrapper-x: 1.4rem;
+
+$gap-wrapper: 1rem;
+$gap-options: 2rem;
+$gap-option: 10px;
+
+$radio-size: 20px;
+$radio-inner-size: 10px;
+$radio-border-width: 2px;
+
+/* --- Typography --- */
+$font-size-label: 1rem;
+$font-size-option: 1.6rem;
+$font-weight-label: 600;
+$font-weight-option: 500;
+
+/* --- Motion --- */
+$transition-fast: 0.2s;
+
+
+/* ============================================================
+   Radio Group Wrapper
+   ============================================================ */
+
+.wrapper {
+    padding: $padding-wrapper-y $padding-wrapper-x;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-wrapper;
+}
+
+
+/* ============================================================
+   Group Label
+   ============================================================ */
+
+.groupLabel {
+    display: block;
+    font-size: $font-size-label;
+    font-weight: $font-weight-label;
+    color: $color-text-muted;
+    margin-bottom: 12px;
+}
+
+
+/* ============================================================
+   Options Container
+   ============================================================ */
+
+.optionsContainer {
+    display: flex;
+    gap: $gap-options;
+    flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   Option Item (Label + Custom Radio)
+   ============================================================ */
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: $gap-option;
+
+    cursor: pointer;
+    color: $color-text-muted;
+    font-size: $font-size-option;
+    font-weight: $font-weight-option;
+
+    transition: color $transition-fast;
+
+    /* Hover feedback for discoverability */
+    &:hover {
+        color: $color-text-active;
+    }
+
+    /* Selected option text */
+    &.selected {
+        color: $color-text-active;
+    }
+}
+
+
+/* ============================================================
+   Native Radio Input (Hidden)
+   ============================================================ */
+
+.radioInput {
+    display: none;
+}
+
+
+/* ============================================================
+   Custom Radio Control
+   ============================================================ */
+
+.customRadio {
+    width: $radio-size;
+    height: $radio-size;
+
+    border: $radio-border-width solid $color-border-radio;
+    border-radius: 50%;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all $transition-fast;
+
+    /* Inner dot (visible only when selected) */
+    &::after {
+        content: '';
+        width: $radio-inner-size;
+        height: $radio-inner-size;
+
+        background-color: $color-radio-hole;
+        border-radius: 50%;
+
+        opacity: 0;
+        transition: opacity $transition-fast;
+    }
+}
+
+
+/* ============================================================
+   Selected State
+   - Green border
+   - Green fill
+   - Inner dot revealed
+   ============================================================ */
+
+.selected .customRadio {
+    border-color: $color-radio-accent;
+    background-color: $color-radio-accent;
+
+    &::after {
+        opacity: 1;
+    }
+}

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+@import url('../../../public/Essentials/general-sans.css');
 
 * {
     margin: 0;
@@ -8,78 +7,12 @@
     outline: none;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
-    font-family: "Hanken Grotesk", sans-serif;
-    // font-family: Gabarito;
-    font-family: 'BeauSans', sans-serif;
-    font-family: Interstate;
+    font-family: 'GeneralSans-Variable', sans-serif;
 }
 
-@font-face {
-    font-family: 'Interstate';
-    src: url('/Essentials/interstate/Interstate-black.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+select {
+  margin: 0;
 }
-
-@font-face {
-    font-family: 'Interstate';
-    src: url('/Essentials/interstate/Interstate-bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Interstate';
-    src: url('/Essentials/interstate/Interstate-light.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Interstate';
-    src: url('/Essentials/interstate/Interstate-regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-
-@font-face {
-    font-family: 'BeauSans';
-    src: url('/Essentials/BT-BeauSans-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'BeauSans';
-    src: url('/Essentials/BT-BeauSans-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'BeauSans';
-    src: url('/Essentials/BT-BeauSans-ExtraBold.ttf') format('truetype');
-    font-weight: 800;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'BeauSans';
-    src: url('/Essentials/BT-BeauSans-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'BeauSans';
-    src: url('/Essentials/BT-BeauSans-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
-
-
 
 html {
     font-size: 62.5%;
@@ -118,5 +51,7 @@ a {
 
 body {
     background-color: hsl(0, 0%, 8%);
+    background-color: #000;
     color: hsl(0, 0%, 100%);
+    accent-color: #000;
 }

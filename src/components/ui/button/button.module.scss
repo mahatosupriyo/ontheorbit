@@ -1,0 +1,107 @@
+/* ============================================================
+   Design Tokens / Variables
+   ============================================================ */
+
+/* --- Colors --- */
+$color-primary: #e60023; // Primary brand action (Pinterest-style red)
+$color-primary-disabled: #ffcccc; // Disabled state for primary button
+
+$color-secondary-bg: #efefef; // Secondary button background
+$color-secondary-hover: #e2e2e2; // Secondary hover background
+$color-secondary-text: #111; // Secondary button text
+
+$color-text-inverse: #ffffff; // Text on dark backgrounds
+
+/* --- Sizing & Layout --- */
+$radius-pill: 14px; // Rounded, pill-like button shape
+
+/* --- Typography --- */
+$font-weight-btn: 600;
+$font-size-sm: 0.85rem;
+$font-size-md: 1.4rem;
+$font-size-lg: 1.1rem;
+
+/* --- Spacing --- */
+$padding-sm-y: 8px;
+$padding-sm-x: 16px;
+
+$padding-md: 1.6rem;
+
+$padding-lg-y: 16px;
+$padding-lg-x: 32px;
+
+/* --- Motion --- */
+$transition-base: all 0.2s ease;
+
+
+/* ============================================================
+   Base Button
+   ============================================================ */
+
+.btn {
+    border: none;
+    border-radius: $radius-pill;
+    font-weight: $font-weight-btn;
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    user-select: none;
+    transition: $transition-base;
+
+    /* --------------------------------------------------------
+       Size Modifiers
+       -------------------------------------------------------- */
+
+    &.sm {
+        padding: $padding-sm-y $padding-sm-x;
+        font-size: $font-size-sm;
+    }
+
+    &.md {
+        padding: $padding-md;
+        font-size: $font-size-md;
+    }
+
+    &.lg {
+        padding: $padding-lg-y $padding-lg-x;
+        font-size: $font-size-lg;
+    }
+
+    /* --------------------------------------------------------
+       Variant: Primary
+       High-emphasis, destructive or main CTA
+       -------------------------------------------------------- */
+
+    &.primary {
+        background-color: $color-primary;
+        color: $color-text-inverse;
+
+        /* Subtle visual feedback without layout shift */
+        &:hover:not(:disabled) {
+            filter: brightness(0.9);
+        }
+
+        /* Disabled state communicates non-interactivity */
+        &:disabled {
+            background-color: $color-primary-disabled;
+            cursor: not-allowed;
+        }
+    }
+
+    /* --------------------------------------------------------
+       Variant: Secondary
+       Low-emphasis, neutral actions
+       -------------------------------------------------------- */
+
+    &.secondary {
+        background-color: $color-secondary-bg;
+        color: $color-secondary-text;
+
+        &:hover:not(:disabled) {
+            background-color: $color-secondary-hover;
+        }
+    }
+}
