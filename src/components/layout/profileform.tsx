@@ -134,6 +134,20 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
         return false;
     }, [formData, gender, dob, initialData]);
 
+
+    const resetFormToOriginal = () => {
+        setFormData({
+            name: initialData.name,
+            username: initialData.username,
+            about: initialData.about,
+            portfolioUrl: initialData.portfolioUrl,
+            phoneNumber: initialData.phoneNumber,
+            country: initialData.country,
+        });
+        setGender(initialData.gender);
+        setDob(initialData.dob);
+    };
+
     // ------------------------------------------------------------------
     // 5. HANDLERS
     // ------------------------------------------------------------------
@@ -146,7 +160,6 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
         if (hasErrors || !isDirty) return;
 
         setIsLoading(true);
-        // Show loading toast
         const toastId = toast.loading("Saving changes");
 
         const payload = { ...formData, gender, dob };
@@ -161,16 +174,24 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
             const data = await res.json();
 
             if (res.ok) {
-                // Update loading toast to success
                 toast.success("Account updated successfully", { id: toastId });
                 router.refresh();
+                // Note: The useEffect on [user] will handle updating 
+                // initialData to the new values automatically after refresh.
             } else {
-                // Update loading toast to error with server message
+                // --- ERROR CASE 1: API Rejected (e.g., Rate limit, Validation) ---
                 toast.error(data.error || "Failed to save changes", { id: toastId });
+
+                // RESET FORM HERE
+                resetFormToOriginal();
             }
         } catch (err) {
             console.error(err);
+            // --- ERROR CASE 2: Network/Server Crash ---
             toast.error("Something went wrong. Please try again.", { id: toastId });
+
+            // RESET FORM HERE
+            resetFormToOriginal();
         } finally {
             setIsLoading(false);
         }
@@ -191,6 +212,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
                     value={formData.name}
                     onChange={handleChange}
                     fullWidth
+                    maxLength={50}
                 />
 
                 <Input
@@ -199,8 +221,9 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
                     value={formData.username}
                     onChange={handleChange}
                     fullWidth
+                    maxLength={20}
                     style={{ textTransform: 'lowercase' }}
-                    helperText="www.ontheorbit.com/username"
+                    helperText={formData.username ? `www.ontheorbit.com/${formData.username}` : "www.ontheorbit.com/username"}
                     error={errors.username}
                 />
 
@@ -221,6 +244,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
                     onChange={handleChange}
                     helperText="For contact purposes only, we won't spam you."
                     fullWidth
+                    maxLength={12}
                     error={errors.phoneNumber}
                 />
 
@@ -230,6 +254,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
                     value={formData.about}
                     onChange={handleChange}
                     fullWidth
+                    maxLength={500}
                     placeholder="Tell about yourself"
                 />
 
@@ -269,6 +294,8 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
                             value={dob.day}
                             onChange={(e) => handleDobChange("day", e.target.value)}
                             type="number"
+                            placeholder="DD"
+                            maxLength={2}
                             error={errors.dobDay}
                         />
                         <Select
@@ -280,8 +307,10 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
                         <Input
                             label="Year"
                             value={dob.year}
+                            placeholder="YYYY"
                             onChange={(e) => handleDobChange("year", e.target.value)}
                             type="number"
+                            maxLength={4}
                             error={errors.dobYear}
                         />
                     </div>
@@ -302,11 +331,11 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
                     </div>
                 </div>
                 <div>
-                    <Button 
+                    <Button
                         type="button"
-                        style={{ 
-                            textWrap: 'nowrap', 
-                            background: '#950606', 
+                        style={{
+                            textWrap: 'nowrap',
+                            background: '#950606',
                             display: "block",
                         }}
                     >
