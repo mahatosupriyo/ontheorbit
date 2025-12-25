@@ -73,8 +73,10 @@ export default function RootLayout({
       <body>
         {/* <SmoothScrollProvider> */}
         <Toaster
+          theme="dark"
+          duration={1400}
           position="bottom-center"
-          richColors  
+          // richColors
         />
         {children}
         {/* </SmoothScrollProvider> */}
