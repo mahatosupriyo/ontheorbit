@@ -387,7 +387,7 @@ const ColorApp: React.FC = () => {
             <h1 className={styles.headingtitle}>Drag and Drop</h1>
             <p
               style={{
-                fontSize: '1.4rem',
+                fontSize: '1.2rem',
                 fontWeight: 500,
               }}
             >tap to upload</p>
