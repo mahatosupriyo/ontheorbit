@@ -382,9 +382,15 @@ const ColorApp: React.FC = () => {
         />
 
         <header className={styles.header}>
-          <motion.div initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
+          <motion.div className={styles.headercontainer} initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
             <Icon name='image' size={26} fill='#fff' />
-            <h1>Drag and Drop</h1>
+            <h1 className={styles.headingtitle}>Drag and Drop</h1>
+            <p
+              style={{
+                fontSize: '1.4rem',
+                fontWeight: 500,
+              }}
+            >tap to upload</p>
           </motion.div>
           <button className={styles.uploadBtn} onClick={handleUploadClick} aria-label="Upload image">
             Upload Image

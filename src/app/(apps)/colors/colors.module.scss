@@ -65,10 +65,6 @@ $util-btn-bg-hover: rgba(255, 255, 255, 0.4);
   gap: 1rem;
   transition: all 0.3s ease;
 
-  // padding: 4rem;
-  // border-radius: 2rem;
-  // border: 0.16rem dashed hsl(0, 0%, 40%);
-
   overflow: hidden;
   position: relative;
 
@@ -97,21 +93,28 @@ $util-btn-bg-hover: rgba(255, 255, 255, 0.4);
     opacity: 0;
   }
 
-  h1 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin: 0;
+  .headercontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
 
-    @media (max-width: $breakpoint-md) {
-      font-size: 1.5rem;
+    .headingtitle {
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 0;
+
+      @media (max-width: $breakpoint-md) {
+        font-size: 1.5rem;
+      }
     }
   }
 }
 
 .imagePreview {
-  width: 20rem;
-  height: 20rem;
-  border-radius: 1.6rem;
+  max-height: 20rem;
+  aspect-ratio: 1/1;
+  border-radius: 2.6rem;
   overflow: hidden;
   // box-shadow: $shadow-lg;
   z-index: 10;
@@ -371,6 +374,7 @@ $util-btn-bg-hover: rgba(255, 255, 255, 0.4);
     .variationHex {
       font-size: 1.2rem;
       opacity: 0;
+      text-transform: uppercase;
       color: inherit;
       font-family: $font-sans;
       transition: opacity 0.2s;
