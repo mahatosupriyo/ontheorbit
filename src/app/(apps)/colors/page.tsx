@@ -24,10 +24,10 @@ import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import ColorThief from 'colorthief';
 import chroma from 'chroma-js';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Upload, Grid, X } from 'lucide-react';
 import { toast } from 'sonner';
 import styles from './colors.module.scss';
 import Icon from '@/components/atoms/icons/icons';
+import Tooltip from '@/components/ui/tooltip/tooltip';
 
 // -----------------------------
 // Constants & Configuration
@@ -107,16 +107,17 @@ const Column: React.FC<ColumnProps> = React.memo(({ color, isActive, onToggle, o
     >
       {isActive ? (
         <div className={styles.variationsList}>
-          <button
-            className={styles.closeBtn}
-            onClick={(e) => {
-              e.stopPropagation();
-              onToggle();
-            }}
-            aria-label="Close shades view"
-          >
-            <Icon name='close' size={26} />
-          </button>
+
+            <button
+              className={styles.closeBtn}
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggle();
+              }}
+              aria-label="Close shades view"
+            >
+              <Icon name='close' size={26} />
+            </button>
 
           {variations.map((variant, idx) => {
             const isOriginal = idx === closestIndex;
@@ -159,25 +160,29 @@ const Column: React.FC<ColumnProps> = React.memo(({ color, isActive, onToggle, o
           className={styles.columnContent}
           style={{ backgroundColor: color, color: mainTextColor }}
         >
-          <motion.button
-            whileTap={{ opacity: 0.6, scale: 0.9 }}
-            className={styles.utilButton}
-            onClick={(e) => {
-              e.stopPropagation();
-              onToggle();
-            }}
-            title="View Shades"
-            aria-label={`View shades for ${color}`}
-            style={{ color: 'currentColor' }}
-          >
-            <Icon name='variation' size={26} />
-          </motion.button>
+          <Tooltip content="shades" direction='top'>
+            <motion.button
+              whileTap={{ opacity: 0.6, scale: 0.98 }}
+              className={styles.utilButton}
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggle();
+              }}
+              title="View Shades"
+              aria-label={`View shades for ${color}`}
+              style={{ color: 'currentColor' }}
+            >
+              <Icon name='variation' size={26} />
+            </motion.button>
+          </Tooltip>
 
-          <motion.div
-            whileTap={{ opacity: 0.6 }}
-            className={styles.hexCode}>
-            {color}
-          </motion.div>
+          <Tooltip content="tap to copy" direction='bottom'>
+            <motion.div
+              whileTap={{ opacity: 0.6, scale: 0.98 }}
+              className={styles.hexCode}>
+              {color}
+            </motion.div>
+          </Tooltip>
         </div>
       )}
     </motion.div>
@@ -381,21 +386,17 @@ const ColorApp: React.FC = () => {
           aria-hidden
         />
 
-        <header className={styles.header}>
-          <motion.div className={styles.headercontainer} initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-            <Icon name='image' size={26} fill='#fff' />
-            <h1 className={styles.headingtitle}>Drag and Drop</h1>
-            <p
-              style={{
-                fontSize: '1.2rem',
-                fontWeight: 500,
-              }}
-            >tap to upload</p>
-          </motion.div>
-          <button className={styles.uploadBtn} onClick={handleUploadClick} aria-label="Upload image">
-            Upload Image
-          </button>
-        </header>
+        <Tooltip content="tap to upload" direction='bottom'>
+          <header className={styles.header}>
+            <motion.div className={styles.headercontainer} initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
+              <Icon name='image' size={26} fill='#fff' />
+              <h1 className={styles.headingtitle}>Drag and Drop</h1>
+            </motion.div>
+            <button className={styles.uploadBtn} onClick={handleUploadClick} aria-label="Upload image">
+              Upload Image
+            </button>
+          </header>
+        </Tooltip>
 
         {/* Show preview image when present */}
         <AnimatePresence>

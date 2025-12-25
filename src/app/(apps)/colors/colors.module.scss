@@ -37,7 +37,8 @@ $util-btn-bg-hover: rgba(255, 255, 255, 0.4);
   position: relative;
   font-family: $font-sans;
 
-  gap: 10rem;
+  gap: 6rem;
+
 
   &.hasImage {
     justify-content: space-between;
@@ -54,7 +55,7 @@ $util-btn-bg-hover: rgba(255, 255, 255, 0.4);
 }
 
 .header {
-  margin-top: 40px;
+  padding: 4rem;
   text-align: center;
   color: white;
   z-index: 10;
@@ -99,10 +100,25 @@ $util-btn-bg-hover: rgba(255, 255, 255, 0.4);
     gap: 1rem;
     align-items: center;
 
+    .headingdescription {
+      font-size: 1.2rem;
+      font-weight: 500;
+
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
     .headingtitle {
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: 1.8rem;
+      font-weight: 800;
       margin: 0;
+      letter-spacing: 0rem;
+      text-transform: lowercase;
+
+      position: relative;
 
       @media (max-width: $breakpoint-md) {
         font-size: 1.5rem;
@@ -112,14 +128,16 @@ $util-btn-bg-hover: rgba(255, 255, 255, 0.4);
 }
 
 .imagePreview {
-  max-height: 20rem;
+  max-height: 36rem;
   aspect-ratio: 1/1;
-  border-radius: 2.6rem;
+  border-radius: 2.4rem;
   overflow: hidden;
   // box-shadow: $shadow-lg;
   z-index: 10;
   position: relative;
   flex-shrink: 0;
+
+  margin-bottom: 6rem;
 
   @media (max-width: $breakpoint-md) {
     width: 180px;
@@ -211,40 +229,6 @@ $util-btn-bg-hover: rgba(255, 255, 255, 0.4);
 
     &:hover {
       background-color: hsl(0, 0, 100%, 0.2);
-
-      &::after {
-        transform: translateY(0rem);
-        backdrop-filter: blur(0rem);
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-
-    &::after {
-      pointer-events: none;
-      user-select: none;
-      content: 'tap to copy';
-      font-family: 'GeneralSans-Variable', sans-serif;
-      transform: translateY(1rem);
-      transition: 0.1s ease-in-out;
-      backdrop-filter: blur(10rem);
-      opacity: 0;
-      display: flex;
-      position: absolute;
-      bottom: -4rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-      background-color: #fff;
-      color: #000;
-      border-radius: 1rem;
-      padding: 0.8rem 0.6rem;
-      text-transform: none;
-      visibility: hidden;
-
-      @media (max-width: $breakpoint-md) {
-        display: none;
-        visibility: hidden;
-      }
     }
   }
 
@@ -268,48 +252,12 @@ $util-btn-bg-hover: rgba(255, 255, 255, 0.4);
     &:hover {
       background: $util-btn-bg;
       transform: scale(1.1) translateY(0);
-
-      &::after {
-        transform: translateY(0rem);
-        backdrop-filter: blur(0rem);
-        opacity: 1;
-        visibility: visible;
-      }
     }
 
     @media (max-width: $breakpoint-md) {
       opacity: 0;
       display: none;
       transform: translateY(0);
-    }
-
-
-    &::after {
-      pointer-events: none;
-      user-select: none;
-      text-wrap: nowrap;
-      content: 'shades';
-      font-family: 'GeneralSans-Variable', sans-serif;
-      transform: translateY(1rem);
-      transition: 0.1s ease-in-out;
-      backdrop-filter: blur(10rem);
-      opacity: 0;
-      display: flex;
-      position: absolute;
-      top: -4rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-      background-color: #fff;
-      color: #000;
-      border-radius: 1rem;
-      padding: 0.8rem 0.6rem;
-      text-transform: none;
-      visibility: hidden;
-
-      @media (max-width: $breakpoint-md) {
-        display: none;
-        visibility: hidden;
-      }
     }
   }
 

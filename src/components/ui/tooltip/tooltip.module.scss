@@ -1,0 +1,103 @@
+$bg-color: #fff;
+$text-color: #000;
+$distance: 4px; 
+
+.wrapper {
+  position: relative;
+  display: inline-flex; 
+
+  // --- MOBILE VISIBILITY FIX ---
+  
+  // 1. Force hide on small screens
+  @media (max-width: 900px) {
+    .tooltip {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+  }
+
+  // 2. Force hide on touch devices (prevents sticking on tap)
+  @media (hover: none) {
+    .tooltip {
+      display: none !important;
+    }
+  }
+
+  // 3. Only apply hover effect on devices that CAN hover
+  @media (hover: hover) {
+    &:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(var(--x-end), var(--y-end));
+      backdrop-filter: blur(0);
+    }
+  }
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+  user-select: none;
+
+  font-family: 'GeneralSans-Variable', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: none;
+  background-color: $bg-color;
+  color: $text-color;
+  border-radius: 1rem;
+  padding: 0.8rem 0.6rem;
+  white-space: nowrap; 
+
+  // Animation base state
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+  backdrop-filter: blur(10rem);
+
+  transform: translate(var(--x-start), var(--y-start));
+
+  // --- Directions ---
+
+  &.top {
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: $distance;
+    --x-start: -50%;
+    --y-start: 10px;
+    --x-end: -50%;
+    --y-end: 0;
+  }
+
+  &.bottom {
+    top: 100%;
+    left: 50%;
+    margin-top: $distance;
+    --x-start: -50%;
+    --y-start: -10px;
+    --x-end: -50%;
+    --y-end: 0;
+  }
+
+  &.left {
+    top: 50%;
+    right: 100%;
+    margin-right: $distance;
+    --x-start: 10px;
+    --y-start: -50%;
+    --x-end: 0;
+    --y-end: -50%;
+  }
+
+  &.right {
+    top: 50%;
+    left: 100%;
+    margin-left: $distance;
+    --x-start: -10px;
+    --y-start: -50%;
+    --x-end: 0;
+    --y-end: -50%;
+  }
+}

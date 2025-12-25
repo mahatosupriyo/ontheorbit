@@ -23,6 +23,7 @@ import { uploadAvatar } from "@/server/actions/uploadavatar";
 import { useState, useRef, useEffect } from "react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
+import Tooltip from "@/components/ui/tooltip/tooltip";
 
 export default function AvatarUpload({
     initialUrl,
@@ -139,70 +140,74 @@ export default function AvatarUpload({
          * - Clickable to trigger file selection
          * - Circular crop using border-radius
          */
-        <motion.div
-            whileHover={{ scale: 0.98 }}
-            whileTap={{scale: 1}}
-            onClick={() => !isUploading && fileInputRef.current?.click()}
-            style={{
-                maxWidth: "20rem",
-                aspectRatio: "1/1",
-                position: "relative",
-                cursor: isUploading ? "wait" : "pointer",
-                borderRadius: "50rem",
-                overflow: "hidden",
-            }}
-        >
-            {/**
+        <Tooltip content="tap to upload" direction="bottom">
+
+            <motion.div
+                whileHover={{ scale: 0.98 }}
+                whileTap={{ scale: 1 }}
+                onClick={() => !isUploading && fileInputRef.current?.click()}
+                style={{
+                    maxWidth: "20rem",
+                    aspectRatio: "1/1",
+                    position: "relative",
+                    cursor: isUploading ? "wait" : "pointer",
+                    borderRadius: "50rem",
+                    overflow: "hidden",
+                }}
+            >
+                {/**
              * Avatar image:
              * - Pointer events disabled to allow parent click handling
              * - Non-draggable for better UX
              */}
-            <motion.img
-                src={displayUrl}
-                alt="Avatar"
-                draggable={false}
-                style={{
-                    objectFit: "cover",
-                    userSelect: "none",
-                    pointerEvents: "none",
-                    height: "100%",
-                    width: "100%",
-                }}
-            />
+                <motion.img
+                    src={displayUrl}
+                    alt="Avatar"
+                    draggable={false}
+                    style={{
+                        objectFit: "cover",
+                        userSelect: "none",
+                        pointerEvents: "none",
+                        height: "100%",
+                        width: "100%",
+                    }}
+                />
 
-            {/**
+                {/**
              * Loading overlay:
              * - Visually blocks interaction during upload
              * - Indicates in-progress state
              */}
-            {isUploading && (
-                <div
-                    style={{
-                        position: "absolute",
-                        inset: 0,
-                        background: "rgba(0,0,0,0.5)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "white",
-                    }}
-                >
-                    ...
-                </div>
-            )}
+                {isUploading && (
+                    <div
+                        style={{
+                            position: "absolute",
+                            inset: 0,
+                            background: "rgba(0,0,0,0.5)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            color: "white",
+                        }}
+                    >
+                        ...
+                    </div>
+                )}
 
-            {/**
+                {/**
              * Hidden file input:
              * - Triggered programmatically on container click
              * - Accepts common image formats
              */}
-            <input
-                type="file"
-                ref={fileInputRef}
-                onChange={handleUpload}
-                accept="image/png, image/jpeg, image/webp"
-                style={{ display: "none" }}
-            />
-        </motion.div>
+                <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleUpload}
+                    accept="image/png, image/jpeg, image/webp"
+                    style={{ display: "none" }}
+                />
+            </motion.div>
+
+        </Tooltip>
     );
 }
