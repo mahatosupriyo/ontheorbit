@@ -69,7 +69,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                 style={{
                     display: "flex",
                     flexDirection: "column",
-                    height: "7.5rem",
+                    height: "7.7rem",
                 }}
                 className={`${styles.wrapper} ${fullWidth ? styles.fullWidth : ""
                     } ${className || ""}`}
@@ -97,7 +97,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                                 ref={ref}
                                 className={styles.input}
                                 {...props}
-                                style={{ cursor: "pointer" }}
+                                style={{ cursor: "pointer", appearance: 'none', margin: '0rem 0rem 0rem 0.1rem' }}
                             >
                                 {/**
                                  * Optional placeholder option

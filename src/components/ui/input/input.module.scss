@@ -3,7 +3,7 @@
    ============================================================ */
 
 /* --- Color Palette --- */
-$color-bg-main: #000; // Primary input background
+$color-bg-main: transparent; // Primary input background
 $color-bg-option: #09090b; // Dropdown option background
 
 $color-text-primary: #fff; // Main text color
@@ -21,8 +21,8 @@ $glow-error: hsl(0, 92%, 20%);
 
 /* --- Spacing & Sizing --- */
 $radius-lg: 1.4rem;
-$padding-y: 1.4rem;
-$padding-x: 1.6rem;
+$padding-x: 1.4rem;
+$padding-y: 1.6rem;
 $gap-sm: 0.5rem;
 $gap-md: 0.7rem;
 $gap-lg: 1.6rem;

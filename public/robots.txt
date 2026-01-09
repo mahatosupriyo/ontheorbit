@@ -1,0 +1,16 @@
+# ---------------------------------------------------
+# HELLO VOYAGER.
+# IF YOU ARE READING THIS, YOU ARE LOOKING UNDER THE HOOD.
+# WE LIKE THAT.
+#
+# APPLY FOR THE FELLOWSHIP. BE UNDENIABLE.
+# ---------------------------------------------------
+
+User-agent: *
+Allow: /
+
+# Stay out of the engine room
+Disallow: /admin
+Disallow: /api/
+
+Sitemap: https://ontheorbit.com/sitemap.xml

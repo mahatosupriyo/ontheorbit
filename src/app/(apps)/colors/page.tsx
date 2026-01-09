@@ -331,7 +331,7 @@ const ColorApp: React.FC = () => {
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
       try {
         await navigator.clipboard.writeText(text);
-        toast.success(`Copied ${text}`);
+        toast.success(`Copied ${text.toUpperCase()}`);
       } catch (err) {
         console.error('Clipboard write failed', err);
         toast.error('Failed to copy to clipboard.');

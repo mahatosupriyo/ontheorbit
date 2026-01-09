@@ -9,13 +9,13 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect, useMemo } from "react";
 import { toast } from "sonner";
 
-import { COUNTRIES } from "@/server/lib/countries";
-import { MONTHS } from "@/server/lib/months";
-import { GENDERS } from "@/server/lib/genders";
+import { COUNTRIES } from "@/server/db/lib/countries";
+import { MONTHS } from "@/server/db/lib/months";
+import { GENDERS } from "@/server/db/lib/genders";
 
 import { RadioGroup } from "@/components/ui/radiogroup/radiogroup";
 import { Select } from "@/components/ui/select/select";
-import Tooltip from "../ui/tooltip/tooltip";
+import Tooltip from "@/components/ui/tooltip/tooltip";
 
 interface ProfileFormProps {
     user: any;
@@ -82,7 +82,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
     }, [user]);
 
     // ------------------------------------------------------------------
-    // 3. VALIDATION LOGIC
+    // 3. VALIDATION LOGIC 
     // ------------------------------------------------------------------
     const errors = useMemo(() => {
         const errs: Record<string, boolean> = {};
@@ -339,6 +339,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
                                 textWrap: 'nowrap',
                                 background: '#950606',
                                 display: "block",
+                                borderRadius: '1.6rem', fontSize: '1.4rem', padding: '1.4rem 1rem', fontWeight: 600
                             }}
                         >
                             {"Delete account"}
@@ -356,9 +357,11 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
                             variant="secondary"
                             form="profile-form"
                             disabled={isLoading || !isDirty || hasErrors}
+
                             style={{
                                 opacity: (!isDirty) ? 0.5 : 1,
-                                cursor: (!isDirty) ? 'not-allowed' : 'pointer'
+                                cursor: (!isDirty) ? 'not-allowed' : 'pointer',
+                                borderRadius: '1.6rem', fontSize: '1.4rem', padding: '1.4rem 1rem', fontWeight: 600
                             }}
                         >
                             {isLoading ? "Saving" : "Save changes"}

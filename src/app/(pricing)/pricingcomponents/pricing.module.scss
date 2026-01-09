@@ -1,0 +1,441 @@
+.container {
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+// --- Header Section ---
+.pageHeader {
+    text-align: center;
+    max-width: 600px;
+    margin-bottom: 60px;
+}
+
+.pageTitle {
+    font-family: 'Instrument Serif', serif; // Assuming you use this font
+    font-size: 3rem;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
+.pageSubtitle {
+    color: #a1a1aa;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+// --- Grid Layout ---
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+// --- Card Styles ---
+.card {
+    background-color: #09090b;
+    border: 1px solid #27272a;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, border-color 0.2s;
+    height: 100%;
+
+    &:hover {
+        border-color: #444;
+        transform: translateY(-4px);
+    }
+}
+
+.header {
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.description {
+    color: #71717a;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+// --- Price Area ---
+.priceContainer {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #27272a;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -1px;
+}
+
+.period {
+    font-size: 0.9rem;
+    color: #a1a1aa;
+    margin-left: 8px;
+
+    // Handles the installment subtext line break
+    display: inline-block;
+}
+
+.subtext {
+    display: block; // Forces new line
+    font-size: 0.75rem;
+    color: #52525b;
+    margin-top: 4px;
+}
+
+// --- Features List ---
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; // Pushes button to bottom
+    margin-bottom: 32px;
+}
+
+.featureItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: #d4d4d8;
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.checkIcon {
+    color: #22c55e; // Matrix Green
+    font-weight: bold;
+}
+
+// --- Action Button ---
+.action {
+    margin-top: auto;
+}
+
+// ... existing styles ...
+
+// --- Admin Zone Styles ---
+.adminZone {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 80px;
+    padding: 40px;
+    background-color: #0c0c0e; // Slightly lighter than black
+    border: 1px dashed #3f3f46; // Dashed border to indicate "Editor" area
+    border-radius: 24px;
+    position: relative;
+}
+
+.adminHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #fff;
+        margin: 0;
+    }
+}
+
+.adminBadge {
+    background-color: #22c55e; // Matrix Green
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 99px;
+    letter-spacing: 0.5px;
+}
+
+/* Add these to your test.module.scss if missing */
+
+.toggleContainer {
+    display: flex;
+    background-color: #18181b;
+    /* Darker grey background */
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 24px;
+    border: 1px solid #27272a;
+}
+
+.toggleBtn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #a1a1aa;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    &:hover {
+        color: #fff;
+    }
+
+    &.active {
+        background-color: #27272a;
+        /* Lighter active state */
+        color: #fff;
+        font-weight: 600;
+    }
+}
+
+.discountBadge {
+    background-color: #22c55e;
+    /* Green badge */
+    color: #000;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); // Dark overlay
+    backdrop-filter: blur(4px); // Cinematic blur
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal {
+    background-color: #09090b; // Deep black/grey
+    border: 1px solid #27272a;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    padding: 24px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0;
+    }
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    color: #71717a;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+// Custom Toggle Switch Styling
+.toggleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #18181b;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #27272a;
+}
+
+.label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #d4d4d8;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3f3f46;
+    transition: .4s;
+    border-radius: 34px;
+
+    &:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+}
+
+// Checked state for toggle
+.switch input:checked+.slider {
+    background-color: #22c55e; // Matrix Green
+}
+
+.switch input:checked+.slider:before {
+    transform: translateX(20px);
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+    justify-content: flex-end;
+}
+
+// Animations
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+// ... existing styles ...
+
+.modal {
+    // ... existing ...
+    max-height: 90vh; // Prevent it from going off screen
+    overflow-y: auto; // Enable scrolling within modal
+}
+
+.sectionTitle {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #71717a;
+    font-weight: 700;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #27272a;
+    padding-bottom: 4px;
+}
+
+.toggleBlock {
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+// ... rest of existing styles ...
+
+
+.priceContainer {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #27272a;
+    display: flex;
+    flex-direction: column; // Stack original price above current price
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.originalPrice {
+    font-size: 1.1rem;
+    color: #71717a; // Muted grey
+    text-decoration: line-through;
+    text-decoration-color: #ef4444; // Red line strike
+    font-weight: 500;
+    margin-bottom: -4px; // Pull closer to main price
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -1px;
+}

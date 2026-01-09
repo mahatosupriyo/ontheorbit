@@ -1,18 +1,30 @@
 import type { Metadata } from "next";
 import "./styles/global.scss";
 import "./styles/global.css";
-import Head from "next/head";
+// Removed 'next/head' as it is not used in App Router (app directory)
 import { Toaster } from 'sonner';
+import { SessionProvider } from "next-auth/react";
 
+// --- 1. THE BRAND SIGNAL (METADATA) ---
 export const metadata: Metadata = {
   metadataBase: new URL('https://ontheorbit.com'),
-  title: {
-    default: "On The Orbit",
-    template: "%s | On The Orbit",
-  },
-  description: "Learn, create, and inspire — this is your Stage.",
-  keywords: ["eduburner", "on the orbit", "oto", "Ontheorbit", "On the orbit", "On The Orbit", "design", "design education", "graphics designing", "design courses", "ux designing", "ui ux", "courses", "tutorials", "graphics"],
-  authors: [{ name: "On The Orbit Team" }],
+  title: "On The Orbit | Be Undeniable.",
+  description: "Don't just graduate. Launch. The 18-month Design Engineering Fellowship for builders who want to ship products, own a .com, and join the top 1%.",
+  keywords: [
+    "On The Orbit", 
+    "Design Engineering", 
+    "Design Fellowship", 
+    "Next.js Course", 
+    "Framer Motion", 
+    "Figma", 
+    "Next JS", 
+    "html css javascript", 
+    "Startup School India", 
+    "Web Development", 
+    "UI/UX Design", 
+    "Kolkata Startup"
+  ],
+  authors: [{ name: "Supriyo & Team" }],
   creator: "On The Orbit",
   publisher: "On The Orbit",
   formatDetection: {
@@ -20,16 +32,18 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  // --- 2. THE SOCIAL CARDS (OPEN GRAPH) ---
   openGraph: {
-    title: "On The Orbit - Launchpad for designers",
-    description: "Learn, create, and inspire — this is your Stage.",
+    title: "On The Orbit | Be Undeniable.",
+    description: "The industry ignores degrees. It ignores grades. It ignores passionate LinkedIn bios. It cannot ignore proof.",
     url: 'https://ontheorbit.com',
     siteName: 'On The Orbit',
     images: [
       {
-        url: 'https://ontheorbit.com/essentials/og.png',
+        url: 'https://ontheorbit.com/Essentials/og.png', // Ensure this image is updated to the new branding
         width: 1200,
         height: 630,
+        alt: 'On The Orbit Fellowship',
       },
     ],
     locale: 'en_US',
@@ -37,10 +51,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'On The Orbit - Launchpad for designers',
-    description: 'Learn, create, and inspire — this is your Stage.',
-    images: ['https://ontheorbit.org/essentials/og.png'],
-    creator: '@ontheorbit',
+    title: 'On The Orbit | Be Undeniable.',
+    description: "The industry ignores degrees. It ignores grades. It ignores passionate LinkedIn bios. It cannot ignore proof.",
+    images: ['https://ontheorbit.com/Essentials/og.png'], // Fixed .org typo
+    creator: '@weareontheorbit', // Updated to your new handle
   },
   robots: {
     index: true,
@@ -65,21 +79,56 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  
+  // --- 3. THE ENTITY SIGNAL (SCHEMA MARKUP) ---
+  // This tells Google: "On The Orbit" is a real Organization, not a typo.
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'On The Orbit',
+    url: 'https://ontheorbit.com',
+    logo: 'https://ontheorbit.com/Essentials/orbit.logo.png',
+    sameAs: [
+      'https://twitter.com/weareontheorbit',
+      'https://instagram.com/weareontheorbit',
+      'https://linkedin.com/company/weareontheorbit',
+      'https://medium.com/@weareontheorbit'
+    ],
+    description: 'A design engineering fellowship and product studio based in Kolkata.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Kolkata',
+      addressRegion: 'WB',
+      addressCountry: 'IN'
+    },
+    founder: {
+      '@type': 'Person',
+      name: 'Supriyo Mahato'
+    }
+  };
+
   return (
     <html lang="en">
-      <Head>
-        <link rel="stylesheet" href="https://use.typekit.net/ika2qcu.css"></link>
-      </Head>
+      <head>
+        {/* In App Router, we use standard tags or metadata. Typekit works best here. */}
+        <link rel="stylesheet" href="https://use.typekit.net/ika2qcu.css" />
+      </head>
       <body>
-        {/* <SmoothScrollProvider> */}
-        <Toaster
-          theme="dark"
-          duration={1400}
-          position="bottom-center"
-          // richColors
+        {/* Injecting the Schema for Google */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
-        {/* </SmoothScrollProvider> */}
+
+        <SessionProvider>
+          <Toaster
+            theme="dark"
+            duration={1400}
+            position="bottom-center"
+            // richColors 
+          />
+          {children}
+        </SessionProvider>
       </body>
     </html>
   )

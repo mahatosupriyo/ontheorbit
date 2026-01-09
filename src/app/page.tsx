@@ -1,50 +1,12 @@
-import { auth } from "@/auth";
-import { db } from "@/server/db";
-import { users } from "@/server/db/schema/auth";
-import { eq } from "drizzle-orm";
+import FAQSection from "@/components/layout/faq/faqsection";
 import styles from "./home.module.scss";
-import { ProfileForm } from "../components/layout/profileform";
-import AvatarUpload from "@/app/(dashboard)/avatarupload/avatarupload"
-import { getAvatarUrl } from "@/server/utils/awsavatarsigner";
+import { FAQ_DATA } from "@/server/lib/faq";
 
 
-export default async function ProfileSettingsPage() {
-  const session = await auth();
-  if (!session?.user) return <div>Please log in</div>;
-
-  const user = await db.query.users.findFirst({
-    where: eq(users.id, session.user.id),
-  });
-
-  if (!user) return <div>User not found</div>;
-
-  const secureAvatarUrl = getAvatarUrl(user?.image ?? null);
-
+export default async function HomePage() {
   return (
     <div className={styles.container}>
-
-      {/* Main Content */}
-      <main className={styles.mainContent}>
-
-        {/* THE 3-COLUMN GRID LAYOUT */}
-        <div className={styles.profileGrid}>
-
-          {/* Column 1: Avatar (Left) */}
-          <div className={styles.leftCol}>
-            <span className={styles.avatarLabel}>Photo</span>
-            <AvatarUpload initialUrl={secureAvatarUrl} />
-          </div>
-
-          {/* Column 2: Form (Center) */}
-          <div className={styles.centerCol}>
-            <ProfileForm user={user} />
-          </div>
-
-          {/* Column 3: Blank (Right) */}
-          <div className={styles.rightCol}></div>
-
-        </div>
-      </main>
+      <FAQSection items={FAQ_DATA} defaultOpenId={1} />
     </div>
   );
 }

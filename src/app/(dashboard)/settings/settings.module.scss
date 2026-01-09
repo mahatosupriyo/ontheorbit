@@ -1,0 +1,194 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.avatarSection {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+
+    .avatar {
+        border-radius: 50%;
+        object-fit: cover;
+        background-color: #f0f0f0;
+    }
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.errorMessage {
+    color: #e02424;
+    background-color: #fde8e8;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.successMessage {
+    color: #03543f;
+    background-color: #def7ec;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+
+.dobSection {
+    margin-bottom: 24px;
+}
+
+.sectionLabel {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.dobGrid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; // Year (1), Month (2), Day (1) ratio
+    gap: 16px;
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr; // Stack on mobile
+        gap: 12px;
+    }
+}
+
+.monthSelect {
+    // Ensure the Select component fills the grid cell
+    width: 100%;
+
+    &>div {
+        margin-bottom: 0;
+    }
+
+    // Remove bottom margin from wrapper
+}
+
+
+// ... existing sidebar styles ...
+
+.mainContent {
+    flex: 1;
+    padding: 40px;
+    // background-color: #000; // Pure black background
+    color: #fff;
+    min-height: 100vh;
+
+    @media (max-width: 1200px) {
+        padding: 1rem; // Compress spacer
+    }
+}
+
+.header {
+    margin-bottom: 60px;
+    max-width: 600px;
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+    p {
+        color: #a1a1aa;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+}
+
+// THE 3-COLUMN GRID
+.profileGrid {
+    display: grid;
+    // Col 1 (Avatar): 250px | Col 2 (Form): 600px | Col 3 (Spacer): Remaining
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6rem;
+    position: relative;
+
+    @media (max-width: 1200px) {
+        grid-template-columns: 200px 1fr 0; // Compress spacer
+    }
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr; // Stack vertically on mobile
+        gap: 40px;
+    }
+}
+
+// Column 1: Avatar Area
+.leftCol {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.avatarLabel {
+    font-size: 1rem;
+    color: #71717a;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: block;
+}
+
+// Column 2: Form Area
+.centerCol {
+    display: flex;
+    flex-direction: column;
+}
+
+// Column 3: Spacer
+.rightCol {
+    // Empty
+    display: flex;
+}
+
+
+.fixedSaveBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #121212;
+    border-top: 1px solid #27272a;
+    z-index: 50;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+
+    @media (max-width: 1200px) {
+        padding: 1rem 1rem; // Compress spacer
+    }
+}
+
+.saveContent {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+}

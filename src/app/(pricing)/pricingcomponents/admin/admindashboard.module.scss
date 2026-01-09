@@ -1,0 +1,267 @@
+.dashboard {
+    background: #09090b;
+    border: 1px solid #27272a;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    font-family: 'Inter', sans-serif; // Ensure a clean font
+}
+
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: #121214;
+    border-bottom: 1px solid #27272a;
+}
+
+.tabs {
+    display: flex;
+    gap: 4px;
+}
+
+.tab {
+    background: transparent;
+    border: none;
+    color: #a1a1aa;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+
+    &:hover {
+        color: #fff;
+        background: #27272a;
+    }
+}
+
+.activeTab {
+    color: #fff;
+    background: #27272a;
+    font-weight: 600;
+}
+
+.contentArea {
+    padding: 24px;
+    background: #09090b;
+}
+
+/* --- SEASON HEADER --- */
+.seasonHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #27272a;
+}
+
+.label {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #71717a;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.seasonTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+}
+
+.liveBadge {
+    font-size: 0.7rem;
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    padding: 2px 8px;
+    border-radius: 99px;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.meta {
+    color: #a1a1aa;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+.addPlanBtn {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+/* --- CREATE FORM WRAPPER --- */
+.createFormWrapper {
+    background: #121214;
+    border: 1px dashed #3f3f46;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hint {
+    text-align: center;
+    color: #52525b;
+    font-size: 0.85rem;
+    margin-top: 20px;
+}
+
+/* --- HISTORY TABLE --- */
+.historyList {
+    width: 100%;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    color: #d4d4d8;
+
+    th {
+        text-align: left;
+        padding: 12px;
+        border-bottom: 1px solid #27272a;
+        color: #71717a;
+        font-weight: 500;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #18181b;
+    }
+
+    .nameCol {
+        color: #fff;
+        font-weight: 500;
+    }
+}
+
+.archivedBadge {
+    background: #27272a;
+    color: #a1a1aa;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+
+/* Add these to your existing AdminDashboard.module.scss */
+
+.emptyStateContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    background: #09090b;
+    border: 1px dashed #27272a;
+    border-radius: 12px;
+}
+
+.emptyContent {
+    text-align: center;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+
+    p {
+        color: #a1a1aa;
+    }
+}
+
+.metaRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #a1a1aa;
+}
+
+.dot {
+    font-size: 0.6rem;
+    color: #3f3f46;
+}
+
+.infoBox {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+.deleteBtn {
+    background: transparent;
+    border: 1px solid #3f3f46;
+    color: #ef4444;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+
+    &:hover {
+        background: #ef4444;
+        color: #fff;
+        border-color: #ef4444;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.archivedState {
+    text-align: center;
+    padding: 40px;
+    color: #71717a;
+
+    h3 {
+        color: #fff;
+        margin-bottom: 8px;
+    }
+}

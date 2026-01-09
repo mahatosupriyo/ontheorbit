@@ -122,7 +122,7 @@
   display: grid;
   // Col 1 (Avatar): 250px | Col 2 (Form): 600px | Col 3 (Spacer): Remaining
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 60px;
+  gap: 6rem;
   position: relative;
 
   @media (max-width: 1200px) {

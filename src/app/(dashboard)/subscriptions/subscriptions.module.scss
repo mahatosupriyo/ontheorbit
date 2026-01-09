@@ -1,0 +1,295 @@
+// Variables
+$bg-black: #000000;
+$bg-card: #121212;
+$text-white: #ffffff;
+$text-gray: hsl(0, 0%, 40%);
+$text-muted: #71717a;
+$accent-green: #22c55e;
+$accent-red: #ef4444;
+$accent-yellow: #fbbf24;
+$border-dark: #27272a;
+$alert-bg: #3f0909;
+$alert-border: #7f1d1d;
+
+// Mixins
+@mixin flex-col($gap: 1rem) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+@mixin flex-center-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// Layout
+.layoutGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; // Centers content with max-width
+    min-height: 100vh;
+    color: $text-white;
+    padding: 6rem 1.5rem;
+    gap: 6rem;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+}
+
+.container {
+    @include flex-col(3rem); // Main vertical spacing
+    width: 100%;
+}
+
+// Typography
+.label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text-white;
+    margin: 0;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.sectionSubtitle {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+// ---------------------------
+// Components specific styles
+// ---------------------------
+
+// Header
+.header {
+    @include flex-col(0.5rem);
+    padding: 0rem 1.4rem;
+}
+
+// Section Wrapper
+.section {
+    @include flex-col(0.4rem);
+    width: 100%;
+    padding: 0rem 1.4rem;
+}
+
+.paysection {
+    @include flex-col(0.4rem);
+    width: 100%;
+}
+
+// Progress Bar
+.progressBlock {
+    @include flex-col(0.5rem);
+    width: 100%;
+
+    .track {
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+        position: relative;
+        border-radius: 2px;
+        margin-top: 1rem;
+    }
+
+    .fill {
+        height: 100%;
+        background-color: $accent-green;
+        transition: width 0.3s ease;
+        border-radius: 2px;
+
+        &.error {
+            background-color: $accent-red;
+        }
+    }
+}
+
+// Alert Box
+.alertBox {
+    @include flex-center-between;
+    background-color: $alert-bg;
+    border: 1px solid $alert-border;
+    border-radius: 1.6rem;
+    padding: 1.25rem;
+    width: 100%;
+    margin-top: 1rem;
+
+    .alertText {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $text-white;
+    }
+
+    // Override external button styles if necessary
+    :global(.buyBtnWrapper button) {
+        background: transparent !important;
+        font-size: 1.2rem !important;
+        padding: 0 !important;
+    }
+}
+
+// Free Plan Action
+.browseBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: $text-white;
+    color: $bg-black;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 1.6rem;
+    border-radius: 1.4rem;
+    font-size: 1.4rem;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+// Date Grid
+.dateGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 0rem 1.4rem;
+
+    .dateItem {
+        @include flex-col(0.4rem);
+
+        .value {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+    }
+}
+
+// History List
+.historyList {
+    @include flex-col(1rem);
+    width: 100%;
+    margin-top: 0.4rem;
+}
+
+.historyCard {
+    background-color: $bg-card;
+    border-radius: 0.6rem;
+    overflow: hidden;
+
+    .mainContent {
+        padding: 2rem 1.4rem;
+        @include flex-col(1.5rem);
+    }
+
+    .metaSection {
+        background-color: hsl(0, 0%, 20%);
+        padding: 1rem 1.4rem;
+        @include flex-col(0.4rem);
+    }
+
+    .statusRow {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .amount {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .detailItem {
+        @include flex-col(0.25rem);
+
+        .label {
+            color: $text-gray;
+            font-size: 1rem;
+        }
+
+        .value {
+            display: inline-flex;
+            color: $text-gray;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .mono {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+// Status Dots
+.dot {
+    &.green {
+        color: $accent-green;
+    }
+
+    &.red {
+        color: $accent-red;
+    }
+
+    &.yellow {
+        color: $accent-yellow;
+    }
+
+    &.gray {
+        color: $text-gray;
+    }
+}
+
+// Danger Zone
+.dangerSection {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+
+    padding: 0rem 1.4rem;
+
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dangerContent {
+        @include flex-col(0.5rem);
+        flex: 1;
+    }
+
+    .dangerLabel {
+        color: $accent-red;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .dangerDesc {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: $text-muted;
+        line-height: 1.4;
+        margin: 0;
+    }
+}
