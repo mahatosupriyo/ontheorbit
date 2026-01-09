@@ -9,9 +9,9 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect, useMemo } from "react";
 import { toast } from "sonner";
 
-import { COUNTRIES } from "@/server/db/lib/countries";
-import { MONTHS } from "@/server/db/lib/months";
-import { GENDERS } from "@/server/db/lib/genders";
+import { COUNTRIES } from "@/server/lib/countries";
+import { MONTHS } from "@/server/lib/months";
+import { GENDERS } from "@/server/lib/genders";
 
 import { RadioGroup } from "@/components/ui/radiogroup/radiogroup";
 import { Select } from "@/components/ui/select/select";

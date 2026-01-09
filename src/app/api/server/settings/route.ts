@@ -23,8 +23,8 @@ import { eq, ne, and } from "drizzle-orm";
 import { NextResponse } from "next/server";
 import { bioRateLimiter } from "@/server/utils/redis";
 import { z } from "zod";
-import { COUNTRY_CODES } from "@/server/db/lib/countries";
-import { GENDERS } from "@/server/db/lib/genders";
+import { COUNTRY_CODES } from "@/server/lib/countries";
+import { GENDERS } from "@/server/lib/genders";
 
 // ============================================================================
 // 1. ZOD SCHEMA (Strict Validation & Sanitization)
