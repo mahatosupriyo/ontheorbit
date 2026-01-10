@@ -9,8 +9,27 @@
 User-agent: *
 Allow: /
 
-# Stay out of the engine room
+# --- AI CRAWLERS (We want to be found) ---
+
+# OpenAI (ChatGPT Search & Training)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+Allow: /
+
+# Google (Gemini Training Control)
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl (Used by many other AI models)
+User-agent: CCBot
+Allow: /
+
+# --- SECURITY & ADMIN ---
 Disallow: /admin
-Disallow: /api/
+Disallow: /api/secret
+Disallow: /auth
+Disallow: /auth
+Disallow: /pricingcomponents
+Disallow: /test
 
 Sitemap: https://ontheorbit.com/sitemap.xml

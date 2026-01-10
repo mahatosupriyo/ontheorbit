@@ -4,10 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FAQItem } from '@/server/lib/faq';
 import styles from './faqsection.module.scss';
 import Icon from '@/components/atoms/icons/icons';
-import { Button } from '@/components/ui/button/button';
 
 const ANIMATION_CONFIG = {
-    duration: 0.5,
+    duration: 0.3,
     ease: [0.04, 0.62, 0.23, 0.98]
 };
 

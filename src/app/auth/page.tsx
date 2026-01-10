@@ -1,13 +1,13 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import styles from './auth.module.scss'
-import Icon from '@/components//atoms/icons/icons'
+import styles from '@/app/auth/auth.module.scss'
+import Icon from '@/components/atoms/icons/icons'
 import { motion, AnimatePresence } from 'framer-motion'
 import { signIn, useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import Lottie from 'lottie-react'
-import animationData from '../../../../public/Essentials/lottie/Security Shield.json'
+import animationData from '../../../public/Essentials/lottie/Security Shield.json'
 import Link from 'next/link'
 import Tooltip from '@/components/ui/tooltip/tooltip'
 

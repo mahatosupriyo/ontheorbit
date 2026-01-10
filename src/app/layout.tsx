@@ -8,20 +8,20 @@ import { SessionProvider } from "next-auth/react";
 // --- 1. THE BRAND SIGNAL (METADATA) ---
 export const metadata: Metadata = {
   metadataBase: new URL('https://ontheorbit.com'),
-  title: "On The Orbit | Be Undeniable.",
+  title: "On The Orbit. Be Undeniable.",
   description: "Don't just graduate. Launch. The 18-month Design Engineering Fellowship for builders who want to ship products, own a .com, and join the top 1%.",
   keywords: [
-    "On The Orbit", 
-    "Design Engineering", 
-    "Design Fellowship", 
-    "Next.js Course", 
-    "Framer Motion", 
-    "Figma", 
-    "Next JS", 
-    "html css javascript", 
-    "Startup School India", 
-    "Web Development", 
-    "UI/UX Design", 
+    "On The Orbit",
+    "Design Engineering",
+    "Design Fellowship",
+    "Next.js Course",
+    "Framer Motion",
+    "Figma",
+    "Next JS",
+    "html css javascript",
+    "Startup School India",
+    "Web Development",
+    "UI/UX Design",
     "Kolkata Startup"
   ],
   authors: [{ name: "Supriyo & Team" }],
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   // --- 2. THE SOCIAL CARDS (OPEN GRAPH) ---
   openGraph: {
-    title: "On The Orbit | Be Undeniable.",
+    title: "On The Orbit. Be Undeniable.",
     description: "The industry ignores degrees. It ignores grades. It ignores passionate LinkedIn bios. It cannot ignore proof.",
     url: 'https://ontheorbit.com',
     siteName: 'On The Orbit',
@@ -79,7 +79,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  
+
   // --- 3. THE ENTITY SIGNAL (SCHEMA MARKUP) ---
   // This tells Google: "On The Orbit" is a real Organization, not a typo.
   const jsonLd = {
@@ -112,6 +112,18 @@ export default function RootLayout({
       <head>
         {/* In App Router, we use standard tags or metadata. Typekit works best here. */}
         <link rel="stylesheet" href="https://use.typekit.net/ika2qcu.css" />
+        
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-84N0PMJ1LL"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){window.dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-84N0PMJ1LL');
+            `
+          }}
+        />
       </head>
       <body>
         {/* Injecting the Schema for Google */}
@@ -125,7 +137,7 @@ export default function RootLayout({
             theme="dark"
             duration={1400}
             position="bottom-center"
-            // richColors 
+          // richColors 
           />
           {children}
         </SessionProvider>
