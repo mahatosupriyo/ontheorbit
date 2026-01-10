@@ -3,7 +3,7 @@
 import { Input } from "@/components/ui/input/input";
 import { Button } from "@/components/ui/button/button";
 import { TextArea } from "@/components/ui/textarea/textarea";
-import styles from "@/components/layout/profileform.module.scss";
+import styles from "./profileform.module.scss";
 
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useMemo } from "react";
